@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://haris-mekic-epoch-ai.pages.dev/sitemap.xml

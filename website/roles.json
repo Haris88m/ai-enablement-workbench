@@ -1,0 +1,70 @@
+{
+  "role": "AI Enablement Manager",
+  "official_posting": "https://jobs.lever.co/epoch-ai/1d8d2e53-1ee7-492e-8f02-f8b52ef19cca",
+  "role_context": "An existing enablement function reporting to the COO, with several dozen automations and shared Claude Slack integrations. The proposed approach starts by maintaining and understanding that estate, not replacing it.",
+  "responsibilities": [
+    {
+      "id": "R1",
+      "requirement": "Operate, repair and retire the automation portfolio",
+      "owned_action": "Directed working-state, action-boundary and review controls in Servari; developed CareerAgent's receipt-bound lifecycle; requested workflow inspection when an app was not useful.",
+      "concrete_mechanism": "Servari baselines and snapshots selected files for keep-or-revert decisions. CareerAgent separates attempts, authorisation and receipt reconciliation and stops on an unknown outcome. A recorded Slack responder incident led to a recovery check and runbook update.",
+      "useful_result": "Recoverable work and observable completion, rather than treating an agent's final message as proof.",
+      "case_ids": ["careeragent", "servari"],
+      "material_gap": "Operating Epoch's multi-user production estate is a new responsibility. Transfer begins with a service inventory, incident/runbook review and existing owner's handover."
+    },
+    {
+      "id": "R2",
+      "requirement": "Build useful workflows with operations, communications and research colleagues",
+      "owned_action": "Defined the bid manager's required decisions and challenged disconnected discovery, staffing and proposal outputs. Turned career source material into reviewable application artifacts. Developed individual context-first coaching.",
+      "concrete_mechanism": "Shared opportunity context, parallel specialist analysis, dependent synthesis, roster-ID validation and section-specific schema-checked output.",
+      "useful_result": "A person receives staffing gaps, assumptions, CV actions and next steps, not several unrelated answers.",
+      "case_ids": ["bid_workflow", "careeragent", "enablement"],
+      "prospective_transfer": "Pilot real tasks with their owners and representative inputs; keep communications release and research interpretation with the appropriate human reviewers."
+    },
+    {
+      "id": "R3",
+      "requirement": "Estimate value and deliberately prioritise",
+      "owned_action": "Asked whether tender discovery was useful against actual organisational capability; challenged invented operational figures; requested used-versus-leftover service inventory and completion of one working flow before adding another platform.",
+      "concrete_mechanism": "Inspect the real workflow and dependencies before implementation; use baseline/keep-or-revert checks for a defined change.",
+      "useful_result": "A decision tied to an operational need and checkable output instead of feature volume.",
+      "case_ids": ["bid_workflow", "models_and_cost", "servari"],
+      "material_gap": "No measured historical ROI portfolio is claimed. First-90-day plan specifies baselines, full-cycle effort and maintenance cost."
+    },
+    {
+      "id": "R4",
+      "requirement": "Run shared Claude Slack tools, integrations, skills and prompts; review models and spend",
+      "owned_action": "I have worked on agents that respond through Slack, not only a separate demonstration interface. I wanted the roles and existing workflows connected before expanding the next product. My acceptance constraint was direct: 'the fix needs to be future proof not only now'. That was a requirement to preserve working behaviour, not permission to change everything around it.",
+      "concrete_mechanism": "The inspected bridge handles Slack events, thread delivery, role lookup and response routing. Role briefs and a neutral working directory bound the context for company-facing replies. The current source can select CLI, SDK, OpenAI-compatible or Gemini backends. It includes selected-agent canaries and an explicit CLI rollback path, so a new engine can be introduced without immediately moving every role.",
+      "useful_result": "Model, context, permissions and tool execution can be examined as separate layers.",
+      "case_ids": ["slack_runtime"],
+      "material_gap": "Direct production administration of Claude Tag in Slack is not evidenced. Proposed work begins with existing app ownership, scopes, dependencies and support channels."
+    },
+    {
+      "id": "R5",
+      "requirement": "Onboard, coach and support staff comfortably",
+      "owned_action": "Adapted context-first AI guidance to an individual consulting task, then proposed supervised real-work procedures. Gave practical Quantum/UNall and supplier guidance and trained two project support colleagues.",
+      "concrete_mechanism": "Work-specific context, clear procedures, independent trial, feedback and follow-up; escalate systems errors through the responsible team.",
+      "useful_result": "An independently tried method and a concrete next-pilot plan; colleagues received practical process support.",
+      "case_ids": ["enablement"],
+      "prospective_transfer": "A low-pressure help channel, beginner-friendly examples, task-based onboarding and coaching that ends with the colleague running and checking their own task."
+    },
+    {
+      "id": "R6",
+      "requirement": "Document maintenance and handover; keep organisational ownership of access",
+      "owned_action": "Required living module blueprints, current implementation state and durable Claude/Codex handoffs; defined survival records and recovery checks.",
+      "concrete_mechanism": "Shared Markdown working record; Servari active-work, work-log, gate and session records; claim/file hashes and exact reviewed artifact identity in CareerAgent.",
+      "useful_result": "The next agent or reviewer can find decisions, changed files, checks and the next action.",
+      "case_ids": ["careeragent", "servari"],
+      "prospective_transfer": "Maintain an organisation-owned service account/access inventory and test runbooks with a second person. That organisational account handover is proposed, not a past Epoch achievement."
+    },
+    {
+      "id": "R7",
+      "requirement": "Maintain dashboard and explain who benefited and by how much",
+      "owned_action": "Rejected an unexplained operational count and an impressive shell that did not connect work. Implemented workflow status and metric-based review; assembled a scoped provider-usage audit for this portfolio.",
+      "concrete_mechanism": "Complete/partial/failed specialist status; baseline versus later checks; provider counter semantics and audit coverage remain separate.",
+      "useful_result": "A reviewer can distinguish activity, measured behaviour and unsupported outcomes.",
+      "case_ids": ["bid_workflow", "servari", "models_and_cost"],
+      "material_gap": "No historical measured staff-hours savings or company-wide adoption rate. Proposed dashboard captures users, full-cycle effort, failure/correction rate, cost and last review."
+    }
+  ]
+}

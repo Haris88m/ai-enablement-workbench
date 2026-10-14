@@ -1,0 +1,136 @@
+{
+  "public_safe": true,
+  "reviewed_on": "2026-10-14",
+  "coverage": {
+    "distinct_selected_sessions": 8,
+    "codex": 3,
+    "claude": 5,
+    "complete_corpus": false
+  },
+  "method": "Four earlier selected sessions plus four additional professional Claude development sessions streamed in full for metadata. Claude assistant IDs deduplicated, synthetic model records excluded, maximum output counter retained per response. Codex uses one maximum cumulative counter per session, never the sum of repeated rows.",
+  "earlier_individual_sessions": [
+    {
+      "evidence_id": "EPOCH-SESSION-1",
+      "provider": "codex",
+      "usage_rows": 399,
+      "counter_resets": 0,
+      "unique_response_ids": null,
+      "token_usage": {
+        "input_tokens": 22478199,
+        "cached_input_tokens": 21504128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 122334,
+        "reasoning_output_tokens": 49454,
+        "total_tokens": 22600533
+      },
+      "scope": "Maximum observed cumulative session counter, counted once; not sum of repeated cumulative rows."
+    },
+    {
+      "evidence_id": "EPOCH-SESSION-2",
+      "provider": "codex",
+      "usage_rows": 4342,
+      "counter_resets": 0,
+      "unique_response_ids": null,
+      "token_usage": {
+        "input_tokens": 584659763,
+        "cached_input_tokens": 520322176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2708723,
+        "reasoning_output_tokens": 963355,
+        "total_tokens": 587368486
+      },
+      "scope": "Maximum observed cumulative session counter, counted once; not sum of repeated cumulative rows."
+    },
+    {
+      "evidence_id": "EPOCH-SESSION-3",
+      "provider": "codex",
+      "usage_rows": 189,
+      "counter_resets": 0,
+      "unique_response_ids": null,
+      "token_usage": {
+        "input_tokens": 18918257,
+        "cached_input_tokens": 17024768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 87864,
+        "reasoning_output_tokens": 30329,
+        "total_tokens": 19006121
+      },
+      "scope": "Maximum observed cumulative session counter, counted once; not sum of repeated cumulative rows."
+    },
+    {
+      "evidence_id": "EPOCH-SESSION-4",
+      "provider": "claude",
+      "usage_rows": 40,
+      "counter_resets": 0,
+      "unique_response_ids": 10,
+      "token_usage": {
+        "input_tokens": 39467,
+        "output_tokens": 8156,
+        "cache_read_input_tokens": 781262,
+        "cache_creation_input_tokens": 98257
+      },
+      "scope": "Deduplicated assistant message IDs; largest output counter per ID, with cache read/creation separate."
+    }
+  ],
+  "additional_individual_sessions": [
+    {
+      "evidence_id": "EPOCH2-HIS-INCIDENT",
+      "label": "Slack incident session",
+      "provider": "claude",
+      "unique_response_ids": 7,
+      "input_tokens": 97781,
+      "output_tokens": 40992,
+      "cache_read_input_tokens": 693415,
+      "cache_creation_input_tokens": 421249
+    },
+    {
+      "evidence_id": "EPOCH2-HIS-JUNE",
+      "label": "Integration and maintenance session",
+      "provider": "claude",
+      "unique_response_ids": 345,
+      "input_tokens": 146693,
+      "output_tokens": 795510,
+      "cache_read_input_tokens": 160258534,
+      "cache_creation_input_tokens": 7536254
+    },
+    {
+      "evidence_id": "EPOCH2-HIS-LOOP",
+      "label": "Local build and validation session",
+      "provider": "claude",
+      "unique_response_ids": 242,
+      "input_tokens": 156186,
+      "output_tokens": 457903,
+      "cache_read_input_tokens": 73436721,
+      "cache_creation_input_tokens": 4708908
+    },
+    {
+      "evidence_id": "EPOCH2-HIS-PROTOTYPE",
+      "label": "Prototype implementation session",
+      "provider": "claude",
+      "unique_response_ids": 362,
+      "input_tokens": 117262,
+      "output_tokens": 310494,
+      "cache_read_input_tokens": 139053752,
+      "cache_creation_input_tokens": 4067490
+    }
+  ],
+  "example_public_wording": "One long bidding-development Codex session records 584,659,763 input tokens, including 520,322,176 cached input tokens, and 2,708,723 output tokens. These are provider processing counters across repeated context and tool use, not words I typed. A separate Claude integration-and-maintenance session records 146,693 uncached input, 160,258,534 cache-read input, 7,536,254 cache-creation input and 795,510 output tokens after response-ID deduplication.",
+  "all_time_tokens": null,
+  "verified_human_hours": null,
+  "token_based_cost_estimate": null,
+  "limits": [
+    "Provider input includes context and tool results; it is not human-typed text.",
+    "Codex cached_input_tokens is a subset of input_tokens; do not add it twice.",
+    "Claude cache-read/cache-creation have separate provider semantics; do not conflate with Codex counters.",
+    "Maximum cumulative counters may include replay or inherited context; no all-time provider total claimed.",
+    "Counter resets, absent metadata and unrecorded provider calls constrain coverage.",
+    "No human-hours total inferred from first-to-last spans or agent duration.",
+    "Five-minute forward windows around human records are only an interaction-window proxy; pasted prompts, IDE context and automation can confound attribution.",
+    "Eight selected sessions are not an all-time total, eight products or eight independent human chats.",
+    "Claude cache read/creation are separate counters; Codex cached input is included in total input.",
+    "Output reasoning counters are subsets; do not add them again.",
+    "Replicated/replayed provider metadata and unrecorded calls constrain aggregate claims.",
+    "Recorded model identifiers describe historical response metadata, not currently recommended models.",
+    "Documented payments now available separately from actual receipt labels; token-to-price cost estimate intentionally not made."
+  ]
+}

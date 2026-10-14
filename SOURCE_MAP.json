@@ -1,0 +1,168 @@
+{
+  "version": "2026-10-14",
+  "scope": "Sanitized excerpts and adaptations from actual source; synthetic harness is new.",
+  "sources": [
+    {
+      "source_id": "SOURCE-QUERY",
+      "source_filename": "query_evidence.py",
+      "original_sha256": "08a2735f26be6262de63cf72d4043434bd113a3a05f8193adf7fa83f4f3d2766",
+      "included": "Algorithm adaptation; not full original module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-COMMON",
+      "source_filename": "common.py",
+      "original_sha256": "56b05e615d4cf711f1edbdea29487a53b5963942b919d5be4dc46a32bac0cb60",
+      "included": "Selected functions/constants or module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-SCHEMA",
+      "source_filename": "init_databases.py",
+      "original_sha256": "d5661fb3989474325362083e3c271feb2e99ce46e5fb02c6efb68599f454528b",
+      "included": "Selected functions/constants or module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-ENGINE",
+      "source_filename": "application_engine.py",
+      "original_sha256": "f3fe7a210dbd552b627d6941c0b16d727e74ffb339d91f52e58d2af80bc55fd6",
+      "included": "Algorithm adaptation; not full original module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-AUTONOMY",
+      "source_filename": "autonomy.py",
+      "original_sha256": "af494b03307044c1b44680d39ea269cd3af87480849c515ec305beaf491c8b91",
+      "included": "Selected functions/constants or module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-PROVIDER",
+      "source_filename": "chat_byom.py",
+      "original_sha256": "f8b4439baa3df6ee38c85bc695c02869060402973b7a14b950ae6ca9c82a1e5d",
+      "included": "Selected functions/constants or module",
+      "private_path_published": false
+    },
+    {
+      "source_id": "SOURCE-CONTEXT",
+      "source_filename": "context_policy.py",
+      "original_sha256": "a64693bd05d2e122487b6f2f63eaf6321954a574ea87a17720ab0b15a16944ad",
+      "included": "Selected functions/constants or module",
+      "private_path_published": false
+    }
+  ],
+  "files": [
+    {
+      "path": "careeragent/privacy.py",
+      "origin": "SOURCE-COMMON",
+      "kind": "EXTRACTED_FUNCTION",
+      "changes": "Wrapper imports/docstring only; privacy_minimize body retained",
+      "source_span": {
+        "start_line": 53,
+        "end_line": 90
+      }
+    },
+    {
+      "path": "careeragent/schema.py",
+      "origin": "SOURCE-SCHEMA",
+      "kind": "EXTRACTED_CONSTANT",
+      "changes": "SOURCE_SCHEMA unchanged; no application schema or runtime migrations",
+      "source_span": {
+        "start_line": 8,
+        "end_line": 91
+      }
+    },
+    {
+      "path": "careeragent/evidence.py",
+      "origin": "SOURCE-QUERY",
+      "kind": "ADAPTED_ALGORITHM",
+      "changes": "main-loop matching becomes callable API; explicit DB/root; namespace and input bounds; no private path output",
+      "source_span": {
+        "start_line": 12,
+        "end_line": 52
+      }
+    },
+    {
+      "path": "careeragent/receipts.py",
+      "origin": "SOURCE-ENGINE",
+      "kind": "ADAPTED_GENERIC_SUBSET",
+      "changes": "Generic confirmation/identity/hash gate and set_status extracted as standalone demonstration. Employer-specific exceptions/provider metadata/full coordinator omitted. New minimal schema.",
+      "source_spans": [
+        {
+          "start_line": 718,
+          "end_line": 765
+        },
+        {
+          "start_line": 767,
+          "end_line": 905
+        }
+      ]
+    },
+    {
+      "path": "servari/autonomy.py",
+      "origin": "SOURCE-AUTONOMY",
+      "kind": "UNCHANGED_SOURCE_MODULE",
+      "changes": "Only CRLF-to-LF newline normalization; source content/logic unchanged"
+    },
+    {
+      "path": "servari/provider_messages.py",
+      "origin": "SOURCE-PROVIDER",
+      "kind": "EXTRACTED_FUNCTIONS",
+      "changes": "Three message-shaping bodies retained; network/config/credential code omitted",
+      "source_spans": [
+        {
+          "start_line": 101,
+          "end_line": 112
+        },
+        {
+          "start_line": 114,
+          "end_line": 130
+        },
+        {
+          "start_line": 132,
+          "end_line": 138
+        }
+      ]
+    },
+    {
+      "path": "servari/context_queue.py",
+      "origin": "SOURCE-CONTEXT",
+      "kind": "ADAPTED_FUNCTION",
+      "changes": "One queue survival check receives explicit path instead of module global",
+      "source_span": {
+        "start_line": 431,
+        "end_line": 467
+      }
+    },
+    {
+      "path": "demo.py",
+      "kind": "NEW_SYNTHETIC_HARNESS",
+      "written_on": "2026-10-14"
+    },
+    {
+      "path": "tests/test_workflows.py",
+      "kind": "NEW_OFFLINE_TESTS",
+      "written_on": "2026-10-14"
+    }
+  ],
+  "exclusions": [
+    "Complete private repository and history",
+    "Private database contents and runtime records",
+    "Employer-specific receipt exceptions",
+    "Raw chats and source documents",
+    "SOAP/bidding client implementation: rights not established"
+  ],
+  "limitations": [
+    "No live model call, external submission, browser access or real client data",
+    "New tests verify this excerpt package only, not complete historical production workflows",
+    "CareerAgent adaptations and new materials are source-available for inspection, without a blanket reuse license.",
+    "Servari excerpts retain upstream Apache-2.0 LICENSE and NOTICE"
+  ],
+  "publication": {
+    "website": "NEW_WEBSITE_2026_10_14",
+    "docs": "SOURCE_REVIEWED_TECHNICAL_NARRATIVE_AND_PROPOSED_PLAN",
+    "site": "https://haris-mekic-epoch-ai.pages.dev",
+    "private_cv_bundled": false
+  }
+}

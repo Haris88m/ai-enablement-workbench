@@ -1,0 +1,260 @@
+{
+  "schema_version": "2.0",
+  "public_safe": true,
+  "reviewed_on": "2026-10-14",
+  "purpose": "Concrete development history mapped to AI Enablement Manager responsibilities, not an employer motivation statement.",
+  "attribution": "Haris specifies needs, supplies context, directs coding agents, challenges outputs and reviews work. Agent-produced code and assistant-maintained histories are not unaided human authorship.",
+  "episodes": [
+    {
+      "claim_id": "EPOCH2-DEV-01",
+      "date": "2026-02-25",
+      "confidence": "VERIFIED",
+      "title": "Two coding assistants, one durable working record",
+      "problem": "Continuity between development tools rather than repeatedly restating the same project.",
+      "owner_action": "Requested Codex to assess the repository, assign work to Claude and use shared Markdown to record task progress and completion.",
+      "agent_action": "The surviving professional session records agent implementation and project-file activity around that direction.",
+      "input": "Repository and design material; current task and handoff state.",
+      "output": "A files-first coordination method: task, changes, verification and next work live with the project.",
+      "role_mapping": [
+        "Systematic agent building",
+        "Maintainable handover",
+        "Autonomous follow-through"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-RELAY"],
+      "limits": [
+        "Does not prove models share weights or learn from one another",
+        "No quantified time saving"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-02",
+      "date": "2026-03-10",
+      "confidence": "VERIFIED",
+      "title": "Bidding relevance before more source volume",
+      "problem": "Unclear buyers, weak opportunity relevance, incomplete expert records and workflow relationships that did not connect.",
+      "owner_action": "Challenged whether the findings came from real records or assumptions; required module blueprints to reflect the implemented code and a coherent radar-to-analysis-to-workshop flow.",
+      "agent_action": "Implemented shared-context specialist analysis; three branches cover business fit, staffing and compliance, then a dependent operations synthesis consumes available results.",
+      "input": "Opportunity, extracted assignment requirements, organisational context and source-quality signals.",
+      "output": "Structured analysis with complete, partial or failed state; unknowns remain visible.",
+      "role_mapping": [
+        "Colleague/workflow needs",
+        "Product judgment",
+        "Operations and research automation"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-BID", "EPOCH2-SRC-BID"],
+      "limits": [
+        "Implementation verified, not measured tender-win uplift or customer adoption",
+        "Private client source is not licensed for public redistribution"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-03",
+      "date": "2026-05-18",
+      "confidence": "VERIFIED",
+      "title": "Separating model capability from the surrounding harness",
+      "problem": "Understanding what depends on a model and what belongs to reusable context, tools and operating method.",
+      "owner_action": "Asked whether the system was an LLM and how different models could attach to the same working method; requested inspection before architectural change.",
+      "output": "A defensible distinction between pretrained model, role/context contracts, memory records, provider interfaces and checks.",
+      "role_mapping": [
+        "Assess models and tools",
+        "System trade-offs",
+        "Resourcefulness"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-BOUNDARY"],
+      "limits": [
+        "Not a claim to have created a foundation model",
+        "Provider equivalence not established"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-04",
+      "date": "2026-06-11",
+      "confidence": "HIGH CONFIDENCE",
+      "title": "A Slack-agent incident became a maintenance rule",
+      "problem": "A historical Slack responder fleet refused to answer because an ancestor directory contained a context marker forbidden by its sealed-working-directory check.",
+      "owner_or_task_direction": "The supplied task identified the failure mode and requested verification, recovery and runbook hardening.",
+      "agent_action": "At inspection the marker had already disappeared. The recorded check returned true; the per-call check allowed recovery without restarting the supervisor. The runbook was updated to explain the intermittent failure and prevention rule.",
+      "output": "A documented symptom/cause/diagnose/prevent sequence, with no unnecessary source-code edit or deletion claimed.",
+      "role_mapping": [
+        "Keep systems running",
+        "Debugging and maintenance",
+        "Clear handover"
+      ],
+      "evidence_ids": [
+        "EPOCH2-HIS-INCIDENT",
+        "EPOCH2-SRC-INCIDENT",
+        "EPOCH2-SRC-SLACK"
+      ],
+      "limits": [
+        "Historical task and agent-maintained incident report, not unaided owner diagnosis",
+        "Current source corroborates per-call seal; historical live recovery not freshly rerun",
+        "No uptime percentage or nine independently deployed products"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-05",
+      "date": "2026-06-15",
+      "confidence": "VERIFIED",
+      "title": "A future-proof fix must preserve existing workflows",
+      "problem": "A workflow needed a deeper fix without breaking already-developed behavior.",
+      "owner_action": "Explicitly asked for multiple-agent investigation, a durable fix and precision about preserving working workflows.",
+      "owner_quote": "the fix needs to be future proof not only now",
+      "output": "A recorded acceptance constraint: improvement must not quietly regress the surrounding system.",
+      "role_mapping": [
+        "Reliability",
+        "Maintenance prioritisation",
+        "Assess implementation trade-offs"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-JUNE"],
+      "limits": [
+        "Quote proves the requirement, not successful repair or regression-free production"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-06",
+      "date": "2026-06-15 to 2026-10-14 source review",
+      "confidence": "VERIFIED",
+      "title": "Slack-facing agents with controlled context and reversible engines",
+      "owner_action": "The original professional history explicitly requires wiring the agents and available Slack connector before expanding the next product.",
+      "agent_implementation": "The bridge implements Slack event handlers, thread delivery, role lookup and model response routing. Company-facing responses use bounded role briefs and a neutral working directory. Current code can select CLI, SDK, OpenAI-compatible or Gemini backends, including selected-agent canaries and explicit CLI rollback.",
+      "safety_detail": "SDK options replace the system prompt, inherit no settings, expose an empty toolset and deny unapproved actions. The bridge includes a 40-reply/600-second rolling-window guard for its reply path.",
+      "output": "A source-implemented communication surface and model-transition seam rather than only a diagram.",
+      "role_mapping": [
+        "Claude in Slack",
+        "Integration maintenance",
+        "Tool/model review",
+        "Cost-aware design"
+      ],
+      "evidence_ids": [
+        "EPOCH2-HIS-JUNE",
+        "EPOCH2-SRC-SLACK",
+        "EPOCH2-SRC-SDK",
+        "EPOCH2-SRC-DISPATCH"
+      ],
+      "limits": [
+        "Fresh source inspection, no network call or current-live Slack health test",
+        "Reply guard is not a universal billing cap",
+        "Private integration code remains private",
+        "No verified enterprise rollout or employer-controlled account handover"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-07",
+      "date": "2026-06-20",
+      "confidence": "VERIFIED",
+      "title": "Audit paid dependencies before adding more infrastructure",
+      "owner_action": "Requested a read-only inventory of billable services, their purpose and which dependencies were leftover or unused, explicitly excluding secret values.",
+      "output": "A cost/dependency investigation requirement anchored in an actual professional session.",
+      "role_mapping": [
+        "Oversee AI-tool spend",
+        "Retire low-value dependencies",
+        "Prioritise deliberately"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-COST"],
+      "limits": [
+        "Does not prove a dependency was retired or savings realised",
+        "Receipt payments separately documented; not inferred from this prompt"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-08",
+      "date": "2026-06-22 and 2026-07-07",
+      "confidence": "VERIFIED",
+      "title": "Local implementation and checks before deployment",
+      "owner_action": "Directed agents to build locally, run tests, QA and end-to-end checks before uploading the result to hosted systems; requested separate builder and tester roles.",
+      "agent_action": "Historical assessment contains recorded agent dispatches and bounded passing-test outputs; the source families include working prototypes.",
+      "output": "Evidence of staged validation and role separation, not simply asking a chatbot for code.",
+      "role_mapping": [
+        "Coding-agent delivery",
+        "Deployment judgment",
+        "Task decomposition"
+      ],
+      "evidence_ids": ["EPOCH2-HIS-LOOP", "EPOCH2-HIS-PROTOTYPE"],
+      "limits": [
+        "Testing requirement is not proof every requested suite passed",
+        "No current external adoption/deployment claim",
+        "Background stop notifications are not successful completion"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-09",
+      "date": "2026 source implementation; reviewed 2026-10-14",
+      "confidence": "VERIFIED",
+      "title": "CareerAgent: evidence survives drafting and browser work",
+      "problem": "The owner reports repeated corrections, lost context and unsupported CV statements; these are reported problems, not a measured baseline.",
+      "input": "Approved professional sources, source-index metadata, safe factual claims, role requirements and application package artifacts.",
+      "agent_implementation": "Python lexical all-term retrieval uses bounded privacy-minimised excerpts; separate SQLite source and application schemas retain provenance and workflow state. Package hashes, claim usage and a staged begin/authorise/complete coordinator bind work to current reviewed artifacts.",
+      "failure_recovery": "Unknown external outcomes stop retries for manual receipt reconciliation. Stale interrupted attempts recover only with receipt-backed status or become unknown.",
+      "output": "Reviewable CV/technical-answer packages and receipt-controlled status; the Epoch role was found during AI-assisted career research and this package is being prepared through the same system.",
+      "role_mapping": [
+        "Operations/research automation",
+        "Dashboard and workflow state",
+        "Reliability",
+        "Maintainable handover"
+      ],
+      "evidence_ids": [
+        "EPOCH2-SRC-CAREER",
+        "EPOCH2-SRC-SCHEMA",
+        "EPOCH2-EPOCH-DISCOVERY"
+      ],
+      "limits": [
+        "Epoch application not submitted",
+        "No measured hours saved",
+        "Lexical not vector retrieval",
+        "Separate database transactions are not distributed ACID",
+        "Controls do not prove security assurance or eliminate all browser failures"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-10",
+      "date": "2026-10-10",
+      "confidence": "HIGH CONFIDENCE",
+      "title": "Teaching a context-first method that a participant can try alone",
+      "owner_action": "Provided individual coaching and a framework distinguishing essential task inputs from useful background.",
+      "participant_action": "A participant independently tested the framework on a hypothetical consulting assignment, reported practical value and asked how to move to a real assignment and review outputs.",
+      "output": "A proposed next-stage working plan with role procedures, reporting, delivery artifacts and a supervised pilot.",
+      "role_mapping": [
+        "One-to-one AI help",
+        "Practical guidance",
+        "Confidence and judgment transfer"
+      ],
+      "evidence_ids": ["EPOCH2-COACHING"],
+      "limits": [
+        "Prior provider-verified register, not email refetched in this pass",
+        "One individual hypothetical trial, not company-wide training",
+        "No measured learning or productivity uplift",
+        "Participant identity/employer/quotes private"
+      ]
+    },
+    {
+      "claim_id": "EPOCH2-DEV-11",
+      "date": "Historical run; numeric artifacts reread 2026-10-14",
+      "confidence": "VERIFIED",
+      "title": "Local-model adaptation with a clear evaluation boundary",
+      "agent_implementation": "Saved Qwen2.5-1.5B-Instruct LoRA configuration and run summary record 2,721 pairs, two epochs, rank 16 and 8,257,536 trainable parameters.",
+      "output": "A historical adapter artifact and recorded training run dimensions.",
+      "role_mapping": [
+        "Review new capabilities",
+        "Resourcefulness",
+        "Model trade-offs"
+      ],
+      "evidence_ids": ["EPOCH2-LORA"],
+      "limits": [
+        "Held-out task improvement unverified",
+        "Training runtime is not human working time",
+        "Not foundation-model creation or frontier-model superiority"
+      ]
+    }
+  ],
+  "role_gaps_to_state_honestly": [
+    "No verified company-wide AI rollout or managed production portfolio scale",
+    "No quantified before/after workflow benefit",
+    "No verified low-value automation retirement with savings",
+    "No proven institutional account/access handover",
+    "No all-time spend/token count or human-hour ledger"
+  ],
+  "metrics_sources": [
+    "sample_usage_expanded_public_safe.json",
+    "paid_receipts_public_safe.json"
+  ]
+}

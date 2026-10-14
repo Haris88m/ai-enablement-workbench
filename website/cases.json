@@ -1,0 +1,86 @@
+{
+  "scope": "Technical portfolio revision2 draft; root review required. Existing CV and portal entries unchanged.",
+  "voice": "First-person technical work, not a motivation answer or cover letter.",
+  "cases": [
+    {
+      "id": "careeragent",
+      "title": "CareerAgent: my job-search work, with a record that survives the next chat",
+      "maturity": "Working personal system used to support Haris's job search",
+      "opening": "I built CareerAgent to keep my career evidence, application work and follow-up connected. A short CV cannot carry the whole context: what I actually did, which source supports it, which wording has been reviewed, and what happened in the previous application. I wanted those decisions to belong to the work, rather than disappear when a chat ends.",
+      "problem_and_inputs": "The inputs are career documents, source records, vacancy information and the owner's decisions. The first job is to separate a source from a claim. A document can establish a title, date or responsibility without proving every achievement someone might infer from it. That distinction becomes part of the context the agents receive.",
+      "my_contribution": "I define the operational rules and direct AI-assisted development with Claude and Codex. I challenge unsupported figures and wording, ask for inspection before implementation when the state is unclear, and require working records that explain what changed and what still needs checking. The agents do useful research, drafting, implementation and review; I remain the person whose career and decisions the system is supporting.",
+      "implementation": "The Python workflow uses SQLite for source and application state, SHA256 hashes for source and receipt integrity, a claim registry for reusable factual wording, and bounded excerpts for evidence review. Retrieval is lexical all-term matching. A claim carries its identifier, evidence identifiers, confidence and boundary; a document-usage record retains the exact wording and target artifact. This gives a reviewer a route from the sentence back to its basis.",
+      "parallel_work": "This Epoch preparation is a concrete example of the working method. Separate agents inspect evidence, prepare technical content and build the portfolio; their handoffs carry claim identifiers and file locations. The content agent does not decide that a new metric is verified, and the evidence agent does not publish a page. The root reviews the joined result. Parallel work is useful because the responsibilities stay explicit, not because every agent is allowed to do everything.",
+      "execution_and_recovery": "External action belongs to a staged coordinator rather than the drafting agent. It checks ownership, a current lease, the package, timing and receipt identity before recording completion. If an outcome is unknown, the workflow stops for reconciliation instead of blindly repeating the action. A completion message from an agent is not the same thing as an independently checked receipt.",
+      "useful_result": "I can return to a case and see its source basis, current document, unresolved questions and next safe step. The system makes my own job-search work easier to inspect and continue, while keeping factual and permission decisions visible.",
+      "next_improvement": "The next useful measurement is the complete work cycle: preparation, checking, corrections and follow-up. That would tell me which parts genuinely reduce effort, rather than counting generated documents as productivity.",
+      "material_boundary": "This is job-search support used by Haris, not a replacement for his judgement. Current Epoch preparation is observed; the application is not described as submitted.",
+      "artifact_lifecycle": "The workflow produces a tailored document and a claim-usage record, then checks text, layout and file identity. The exact reviewed PDF can be registered as an application-ready derivative without replacing the original or earlier credentials. Preparation, upload, submission and receipt reconciliation remain distinct states."
+    },
+    {
+      "id": "servari",
+      "title": "Servari: separate the model from the way the work is controlled",
+      "maturity": "Public local-first control-shell implementation",
+      "opening": "I wanted to change the model without having to rebuild the working method around it. That led me to separate the interface, model conversation, working records and action policy. The important question is not just what the model answered, but what the system is allowed to do with that answer.",
+      "implementation": "The implementation combines a standard-library Python localhost server, JSON API, React/Vite interface, file-backed state and an optional Electron shell. The model interface sends the last twenty turns, a system instruction and an output-token cap to an OpenAI-compatible endpoint. Missing configuration produces an explicit no-model state instead of an invented response.",
+      "policy_design": "The action policy validates an integer risk score and the agent's level, then returns act, report or queue. High-risk work queues even at the highest level. Invalid score inputs also queue. This puts a checkable rule between a model's output and a consequential action.",
+      "context_and_handover": "The context policy defines what enters working context, what can be evicted, what must survive and the order of recovery. It checks active work, the current work entry, a risk-recording channel, the gate queue and session record. Checkpointing identifies material that still needs human input. The pressure signal uses transcript size and work-log distance, so I treat it as an operational proxy rather than exact model-window telemetry.",
+      "maintenance": "The retention workflow gives a proposed change a baseline and defined check, snapshots selected files and compares the later result. It can keep the change or restore enrolled files with hash verification. That makes an improvement inspectable and reversible within the targets covered by the check.",
+      "useful_result": "The public code exposes the rules and records behind the shell. A reviewer can inspect the no-config behaviour, gating logic, context checks and keep-or-revert mechanism instead of relying on a polished interface or a completion claim.",
+      "public_code": "https://github.com/Haris88m/servari-open",
+      "material_boundary": "The public shell provides policy and control-plane scope; a shipped concurrent autonomous execution engine is not claimed."
+    },
+    {
+      "id": "bid_workflow",
+      "title": "Bid preparation: make the handoff useful to the person deciding",
+      "maturity": "Implemented workflow, developed and demonstrated",
+      "opening": "A longer list of tenders was not the result I wanted. If the buyer was unclear, the opportunity did not fit the organisation or the expert record was incomplete, discovery just moved the work downstream. I started with the company's context and the decisions the bid manager had to make.",
+      "design_and_owned_review": "I asked for the discovery, specialist analysis, expert, pipeline, task and calendar paths to be inspected together. I challenged whether conclusions came from records or assumptions and required module blueprints to follow the code. Claude and Codex helped turn that assessment into implementation; I directed the context and reviewed whether the pieces formed one coherent process.",
+      "orchestration": "An opportunity, source-document status, assignment requirements and organisational context feed three parallel specialist analyses: business fit, bid coordination and data/compliance. Promise.allSettled preserves available results when a branch fails. Operations synthesis runs afterwards with those results, recording complete, partial or failed status. Presentation work is a separate on-demand step.",
+      "outputs": "The bid-manager handoff includes expert matches, team gaps, staffing confidence, mobilisation and budget assumptions, CV actions and coordination notes. Expert references are checked against roster identifiers. If the roster is missing, the output is partial and no budget estimate is supplied. Proposal sections receive requirements, evaluation criteria, risks and relevant specialist findings; a Zod schema checks response structure.",
+      "tools_and_models": "Development tools and runtime models are different layers. Claude and Codex support development; the inspected structured-generation configuration uses Gemini 2.5 Flash. A separate control-plane chat uses an Anthropic streaming adapter, role-filtered tools, tool-result blocks, result-size truncation and token accounting.",
+      "useful_result": "The implementation produces a reviewable route from opportunity context to staffing and proposal preparation. Missing information is actionable rather than hidden inside fluent prose.",
+      "maintenance_priorities": "The source audit identified an unreachable task-generation branch and a declared tool-call limit that is not enforced inside every returned-tool batch. Those are specific repair priorities. I would fix and regression-test them before depending on those behaviours in a wider workflow.",
+      "material_boundary": "Useful implemented outputs are described; measured bid wins and company rollout are not established."
+    },
+    {
+      "id": "models_and_cost",
+      "title": "Model experiments and cost: judge the whole workflow",
+      "maturity": "Local adaptation and routing experiments; scoped usage audit",
+      "narrative": "I explore unfamiliar technical layers when they answer a practical question. Local-model work took me into Python data preparation, pretrained-model adaptation and inference routing. The inspected training script formats JSONL instructions, tokenises to a bounded length, loads a causal language model and saves PEFT LoRA adapters with run summaries. A saved Qwen2.5-1.5B-Instruct experiment records 2,721 pairs, two epochs and rank 16. The next question is whether it helps on held-out tasks; the saved run alone does not answer that.\n\nThe routing implementation chooses a tier using task sensitivity, local availability and registry health. Budget is one signal, not a hard spending cap. Thirteen deterministic selection tests passed in the October audit. Those checks tell me about routing behaviour, not model accuracy.\n\nI also asked for a read-only inventory of billable dependencies, including what was actually used and what might be left over, without printing secrets. The current portfolio usage audit keeps provider counters separate and states its coverage. Cached input, repeated cumulative records and output tokens do not have interchangeable meanings. I would rather show a bounded measurement than turn a large counter into an invented cost or a claim about human hours.",
+      "material_boundary": "No held-out quality gain, verified all-time cost or human-hours total has been established."
+    },
+    {
+      "id": "slack_runtime",
+      "title": "Slack-facing agents: a model change should not break the working method",
+      "maturity": "Source-implemented private integration with a historical incident and runbook",
+      "opening": "I have worked on agents that respond through Slack, not only a separate demonstration interface. I wanted the roles and existing workflows connected before expanding the next product. My acceptance constraint was direct: 'the fix needs to be future proof not only now'. That was a requirement to preserve working behaviour, not permission to change everything around it.",
+      "runtime_design": "The inspected bridge handles Slack events, thread delivery, role lookup and response routing. Role briefs and a neutral working directory bound the context for company-facing replies. The current source can select CLI, SDK, OpenAI-compatible or Gemini backends. It includes selected-agent canaries and an explicit CLI rollback path, so a new engine can be introduced without immediately moving every role.",
+      "permission_and_loop_control": "The SDK configuration replaces the system prompt, inherits no settings, exposes an empty toolset and denies unapproved actions. The reply path has a rolling guard of forty replies in six hundred seconds. That is a concrete loop-control mechanism; I would still measure provider spend and enforce budget decisions separately.",
+      "maintenance_example": "A June incident showed how a protective rule can become an operational failure. The responders refused to answer because an ancestor directory had a context marker prohibited by their sealed-working-directory check. By the time of inspection, the marker had disappeared; the recorded check passed and the per-call check allowed recovery without a supervisor restart. The useful work was diagnosing that behaviour and hardening the runbook, not making an unnecessary code edit or deleting a file that was no longer there.",
+      "useful_result": "This gives me a concrete basis for discussing shared AI integrations: where context enters, which backend is selected, how a reply reaches the thread, which actions are allowed, how a change is rolled back and how an intermittent failure is explained to the next maintainer.",
+      "role_transfer": "For Epoch I would first inspect the existing Claude Tag setup and its connected services. The Slack bridge experience is related integration work, not an assumption that Epoch uses the same architecture or that I have already administered its tools.",
+      "owner_quote": {
+        "text": "the fix needs to be future proof not only now",
+        "attribution": "Haris, original technical working instruction, 15 June 2026",
+        "evidence_id": "EPOCH2-HIS-JUNE",
+        "purpose": "Technical acceptance requirement only"
+      },
+      "material_boundary": "Current source was inspected without a live Slack/network test. The incident is historical; private integration code and account details remain private."
+    },
+    {
+      "id": "enablement",
+      "title": "Enablement: start with the person's work, not a prompt library",
+      "maturity": "Individual AI coaching plus established systems-adoption work",
+      "narrative": "My enablement work starts with what the person needs to achieve, what they already know and where the task becomes difficult. I translate that into context, a working procedure and a result they can check. In the individual coaching case, the participant tried the method independently on a hypothetical consulting assignment and reported practical value. I then sent a structured proposal covering role-based procedures, reporting and a supervised real-work pilot.\n\nThat approach connects with my earlier systems-adoption work at UN Women: practical guidance on Quantum and UNall, supplier submission support, labs with headquarters and the Regional Office, and follow-through when errors needed escalation. It also connects with the Evoluxer project, where I explained procedures, trained two support colleagues and coordinated their daily tasks. The point is to leave the person more capable of carrying the work forward, rather than make them dependent on the person who introduced the tool.",
+      "material_boundary": "The AI coaching evidence is one hypothetical individual trial and a proposed real-work pilot; that distinction stays visible."
+    }
+  ],
+  "editorial_checks": {
+    "no_why_epoch_generated": true,
+    "no_cover_letter": true,
+    "private_client_identity_omitted": true,
+    "metrics_not_converted_to_roi": true,
+    "generated_or_prospective_work_not_presented_as_completed": true
+  }
+}

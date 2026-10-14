@@ -1,0 +1,111 @@
+{
+  "scope": "Prospective technical approach for the AI Enablement Manager role; not a promise of pre-agreed priorities or historical achievements.",
+  "voice": "First person; operational choices only. No Why Epoch answer or cover letter.",
+  "first_day": {
+    "title": "My first day: understand what already earns its place",
+    "answer": "I would start with the person currently responsible for enablement, the COO and a few colleagues who use the automations. Epoch already has several dozen workflows and substantial Claude Slack integration work. Before proposing anything new, I would want to understand what people rely on, what breaks, which fixes are waiting and what the current owner knows that is not written down.\n\nI would follow one important workflow from the Slack request or other trigger to the result someone actually uses. That means seeing the prompt or skill, data sources, integration permissions, model call, output, review step and failure path. I would ask the user to show me a recent successful example and an awkward one. If the output needs twenty minutes of correction, that is part of the workflow, not an invisible cost.\n\nAlongside that, I would establish a small working inventory: owner, purpose, users, dependencies, account/access owner, current cost source, health check and safe fallback. I would not collect secret values in the dashboard. An urgent reliability or access problem would take priority over a new feature.\n\nFor new opportunities I would ask who needs the result, how often, what they do now and how we would know the change helped. I would compare expected benefit with build effort, review effort, risk, recurring tool spend and maintenance. A useful script or clearer process might win over an LLM workflow. My first pilot would have a task owner, representative examples, a baseline and a stop condition.\n\nI would end the day with a shared picture of the existing estate, the immediate reliability questions and a short ranked list of next investigations. The aim is to make a sound next decision, not announce a replacement platform on day one.",
+    "outputs": [
+      "Initial automation/service inventory",
+      "One traced workflow with normal and failure examples",
+      "Immediate incident or access risks",
+      "Short ranked investigation list with owners"
+    ],
+    "statement_type": "PROPOSED_APPROACH"
+  },
+  "first_90_days": [
+    {
+      "period": "Days 1-30",
+      "theme": "Inherit, stabilise and establish a usable baseline",
+      "narrative": "I would first earn confidence in the existing systems. I would pair with the current owner, watch colleagues use the workflows and review recent incidents before deciding what to change. I would keep the inherited dashboard useful rather than build a competing register. Each workflow would have a named business owner, technical owner, purpose, users, dependencies, health signal and fallback. I would agree with the COO which services are critical and how issues should be escalated.",
+      "workstreams": {
+        "production": "Trace critical workflows end to end, check schedules/triggers, model/provider changes, schema drift, integration failures and manual fallback. Fix urgent defects with a rollback path and a representative regression check. Confirm what should happen after a timeout, duplicate trigger or partial completion before enabling an automatic retry.",
+        "claude_slack": "Review Claude Tag app ownership, approved scopes, channel use, connected services, skill/prompt locations and support workflow with the existing administrator. Observe how staff invoke it and where they get stuck. Keep working integrations in place; propose changes through the existing approval process.",
+        "access_handover": "Record organisation-owned accounts, responsible administrators, service-account dependencies and recovery responsibility. Store references to the secure credential system, never secret values in runbooks. Ask another authorised person to follow one recovery procedure to reveal undocumented knowledge.",
+        "spend": "Reconcile subscription/licence records and provider usage with the finance/operations owner. Separate fixed subscriptions from variable calls and cached-input semantics. Identify unused dependencies and duplicate tools, then propose changes instead of cancelling services without the owner.",
+        "staff": "Open a predictable beginner-friendly help route, meet new hires and a small mix of research, communications and operations users, and collect actual task examples. Write short guidance around what to supply, how to check the result and when to ask for help.",
+        "priorities": "Rank candidate work using frequency, current effort, quality or capacity benefit, downstream review cost, build/maintenance effort, spend and consequence of failure. Use ranges and uncertainty notes rather than invented precision. Select a small number of pilots with named users and acceptance criteria."
+      },
+      "deliverables": [
+        "Reviewed existing dashboard with ownership and health gaps",
+        "Critical-workflow runbooks and tested fallback",
+        "Verified spend baseline with coverage notes",
+        "Agreed prioritisation rubric and pilot shortlist",
+        "First onboarding guide and support-channel norms"
+      ],
+      "decision_gate": "The COO and task owners agree on priority and acceptable risk; there is enough baseline information to judge a pilot."
+    },
+    {
+      "period": "Days 31-60",
+      "theme": "Improve a few real workflows and teach people to own the result",
+      "narrative": "I would use the first month to choose a small number of improvements with clear owners, not to accumulate an ambitious backlog. Each pilot would start with a short specification: the problem, inputs, permitted data/actions, expected artifact, exceptions and acceptance tests. I would direct coding agents in bounded tasks and review the joined workflow with the users who will depend on it.",
+      "workstreams": {
+        "build": "Choose the simplest appropriate implementation: process change, deterministic script, model-assisted draft or multi-step automation. Separate extraction and validation from interpretation where that makes errors easier to catch. Keep source references with research-support output and human release approval for external communications where required.",
+        "test": "Replay representative normal cases plus missing data, stale source, malformed response, permission failure, timeouts and duplicate events. Start in read-only or draft mode where useful. Validate structure in code and factual/task quality with the relevant reviewer; one does not substitute for the other.",
+        "measure": "Capture full-cycle effort including preparation and checking, completion/failure and correction rates, active users, provider cost and maintenance time. Record the sample size, dates and baseline method. Compare outcomes for the actual users rather than equating model calls with value.",
+        "models": "Evaluate a new tool or model on a fixed, permission-safe set of representative tasks. Compare output quality, latency, cost, data handling and maintainability. Change routing only when the results justify it, with a rollback option and existing workflows checked for regression.",
+        "coaching": "Run task-based one-to-one sessions: ask the colleague to bring a real example, build the context together, have them run and inspect the result, then let them repeat it independently. Turn recurring questions into short examples in shared guidance rather than a long generic manual.",
+        "handover": "Maintain configuration, dependency, testing, escalation and recovery notes as the pilot changes. Have a second authorised person reproduce a run or perform the documented fallback before calling it ready."
+      },
+      "deliverables": [
+        "Small number of owner-tested workflow improvements",
+        "Pilot measurement record with correction/review effort",
+        "Shared practical skill/prompt examples",
+        "Model/tool evaluation note tied to representative tasks",
+        "Reproducible handover for each pilot"
+      ],
+      "decision_gate": "A pilot expands only if its net usefulness is demonstrated and maintenance/access ownership is clear; otherwise revise or stop."
+    },
+    {
+      "period": "Days 61-90",
+      "theme": "Make the portfolio legible, sustainable and easy to continue",
+      "narrative": "I would turn what we learned into a sustainable operating rhythm. That means clear decisions about which pilots become maintained services, which inherited workflows need repair and which no longer justify their upkeep. I would discuss retirement with users and preserve a fallback or migration route rather than remove a workflow because its usage counter is low.",
+      "workstreams": {
+        "portfolio": "Review value and cost with the COO and owners. Promote successful pilots with monitoring/runbooks; simplify or retire weak ones after checking hidden dependencies and low-frequency but important uses. Keep the next backlog bounded by available maintenance capacity.",
+        "dashboard": "Show the decision information: workflow purpose, beneficiaries, owner, status, last successful run, failure/correction rate, full-cycle effort, cost, last review and next action. Mark estimated values and incomplete samples. Keep detailed logs behind appropriate access, not in the public-facing summary.",
+        "reporting": "Report what changed, for whom and how we know: baseline, observed result, measurement window, residual problems and the next decision. Include lessons from stopped pilots; they improve prioritisation rather than disappear from the record.",
+        "staff": "Test onboarding with someone new to the system, review support-channel questions and update guidance. Identify colleagues who can answer routine questions and retain an escalation route so basic questions remain welcome.",
+        "resilience": "Check that Epoch owns essential accounts/access, run a documented recovery or fallback exercise with another authorised person, and confirm that an absent maintainer would not leave colleagues stranded.",
+        "next_quarter": "Agree the next priorities using measured pilot results, user requests, reliability debt and spending constraints. Keep model experiments connected to those needs rather than adopt every new capability by default."
+      },
+      "deliverables": [
+        "Portfolio keep/improve/retire decisions with owners",
+        "Dashboard showing observed benefit and operational health",
+        "90-day review for COO and staff",
+        "Tested maintenance and access handover",
+        "Focused next-quarter plan"
+      ],
+      "decision_gate": "The portfolio has an agreed owner and evidence-based next action; adoption and benefit claims match the measurements actually collected."
+    }
+  ],
+  "measurement_example": {
+    "formula": "Estimated net time benefit = eligible runs x (baseline full-cycle minutes - new full-cycle minutes) - maintenance minutes",
+    "cautions": "Use observed samples and a documented eligibility/coverage method. Compare quality and capacity benefit separately from time. Do not claim hours saved when the baseline or checking effort is unknown.",
+    "dashboard_fields": [
+      "workflow_id",
+      "purpose",
+      "business_owner",
+      "technical_owner",
+      "beneficiaries",
+      "lifecycle_status",
+      "data_permission_reference",
+      "dependency_account_owner",
+      "last_success",
+      "failure_and_correction_rate",
+      "baseline_full_cycle_effort",
+      "observed_full_cycle_effort",
+      "sample_window_and_count",
+      "fixed_and_variable_cost",
+      "maintenance_effort",
+      "last_review",
+      "fallback",
+      "next_decision"
+    ]
+  },
+  "not_assumed": [
+    "Authority to change or cancel accounts before organisational approval",
+    "A known Epoch architecture beyond the official role description",
+    "A predetermined number of pilots or savings target",
+    "Staff desire to replace existing tools",
+    "Permission to put confidential research into a new provider"
+  ]
+}

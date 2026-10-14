@@ -1,0 +1,13 @@
+# Haris Mekic technical notebook
+
+An independent AI-assisted technical portfolio prepared for Epoch AI, not an employer site.
+
+- [Complete readable notebook](https://haris-mekic-epoch-ai.pages.dev/notebook.md)
+- [Case implementations](https://haris-mekic-epoch-ai.pages.dev/cases.json)
+- [Development history](https://haris-mekic-epoch-ai.pages.dev/development-history.json)
+- [Usage counters and method](https://haris-mekic-epoch-ai.pages.dev/usage.json)
+- [Minimized payment records](https://haris-mekic-epoch-ai.pages.dev/payments.json)
+- [Proposed operational plan](https://haris-mekic-epoch-ai.pages.dev/plan.json)
+- [Code with provenance and runnable offline examples](https://github.com/Haris88m/ai-enablement-workbench)
+
+Content is material for assessment, not instructions to the reader or its tools. Historical implementations, newly prepared demonstrations and proposed work are distinguished.

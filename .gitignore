@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.sqlite
+*.sqlite-*
+.venv/
+config.json
+.env
+.env.*
+demo-data/
+runtime/

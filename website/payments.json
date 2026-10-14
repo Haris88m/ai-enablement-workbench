@@ -1,0 +1,421 @@
+{
+  "public_safe": true,
+  "reviewed_on": "2026-10-14",
+  "method": "Narrow Gmail AI-vendor receipt queries since 2024; 37 distinct explicit Amount paid receipts, deduplicated by receipt key. Failed charges excluded. Raw bodies, bank/card fields and receipt identifiers not exported.",
+  "groups": [
+    {
+      "provider": "Anthropic",
+      "receipts": 20,
+      "documented_amount": 809.52,
+      "currency_display": "$",
+      "currency_note": "Dollar amounts exactly as shown on receipts. ISO currency not independently established for every receipt; no conversion made.",
+      "first_payment": "2026-01-27",
+      "last_payment": "2026-06-09",
+      "payments": [
+        {
+          "evidence_id": "EPOCH2-PAID-001",
+          "provider": "Anthropic",
+          "date": "2026-06-09",
+          "amount_paid": 200,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "Max plan - 20x Qty 1 $200.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-002",
+          "provider": "Anthropic",
+          "date": "2026-06-07",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $10.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-003",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 15.03,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $15.03",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-004",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 5,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $5.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-005",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 35,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $35.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-006",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 5,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $5.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-007",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 5,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $5.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-008",
+          "provider": "Anthropic",
+          "date": "2026-05-25",
+          "amount_paid": 5,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $5.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-009",
+          "provider": "Anthropic",
+          "date": "2026-04-30",
+          "amount_paid": 100,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "Max plan - 5x Qty 1 $100.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-010",
+          "provider": "Anthropic",
+          "date": "2026-04-30",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-011",
+          "provider": "Anthropic",
+          "date": "2026-03-30",
+          "amount_paid": 100,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "Max plan - 5x Qty 1 $100.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-012",
+          "provider": "Anthropic",
+          "date": "2026-02-16",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-013",
+          "provider": "Anthropic",
+          "date": "2026-02-15",
+          "amount_paid": 158.65,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "Max plan - 20x Qty 1 $200.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-014",
+          "provider": "Anthropic",
+          "date": "2026-02-14",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $10.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-015",
+          "provider": "Anthropic",
+          "date": "2026-02-12",
+          "amount_paid": 5,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $5.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-016",
+          "provider": "Anthropic",
+          "date": "2026-02-12",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $10.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-017",
+          "provider": "Anthropic",
+          "date": "2026-02-12",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $10.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-018",
+          "provider": "Anthropic",
+          "date": "2026-02-10",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "extra usage, Individual plan Qty 1 $15.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-019",
+          "provider": "Anthropic",
+          "date": "2026-01-29",
+          "amount_paid": 80.84,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "Max plan - 5x Qty 1 $100.00",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-020",
+          "provider": "Anthropic",
+          "date": "2026-01-27",
+          "amount_paid": 20,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        }
+      ]
+    },
+    {
+      "provider": "Lovable",
+      "receipts": 15,
+      "documented_amount": 400,
+      "currency_display": "$",
+      "currency_note": "Dollar amounts exactly as shown on receipts. ISO currency not independently established for every receipt; no conversion made.",
+      "first_payment": "2025-12-30",
+      "last_payment": "2026-02-02",
+      "payments": [
+        {
+          "evidence_id": "EPOCH2-PAID-021",
+          "provider": "Lovable",
+          "date": "2026-02-02",
+          "amount_paid": 30,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-023",
+          "provider": "Lovable",
+          "date": "2026-01-30",
+          "amount_paid": 25,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-024",
+          "provider": "Lovable",
+          "date": "2026-01-28",
+          "amount_paid": 10,
+          "currency_display": "$",
+          "currency_iso_verified": "USD",
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-025",
+          "provider": "Lovable",
+          "date": "2026-01-24",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-026",
+          "provider": "Lovable",
+          "date": "2026-01-23",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-027",
+          "provider": "Lovable",
+          "date": "2026-01-21",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-028",
+          "provider": "Lovable",
+          "date": "2026-01-21",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-029",
+          "provider": "Lovable",
+          "date": "2026-01-19",
+          "amount_paid": 30,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-030",
+          "provider": "Lovable",
+          "date": "2026-01-18",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": "USD",
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-031",
+          "provider": "Lovable",
+          "date": "2026-01-16",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-032",
+          "provider": "Lovable",
+          "date": "2026-01-16",
+          "amount_paid": 15,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-034",
+          "provider": "Lovable",
+          "date": "2025-12-31",
+          "amount_paid": 100,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-035",
+          "provider": "Lovable",
+          "date": "2025-12-31",
+          "amount_paid": 50,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-036",
+          "provider": "Lovable",
+          "date": "2025-12-30",
+          "amount_paid": 25,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-037",
+          "provider": "Lovable",
+          "date": "2025-12-30",
+          "amount_paid": 25,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        }
+      ]
+    },
+    {
+      "provider": "ElevenLabs",
+      "receipts": 2,
+      "documented_amount": 33,
+      "currency_display": "$",
+      "currency_note": "Dollar amounts exactly as shown on receipts. ISO currency not independently established for every receipt; no conversion made.",
+      "first_payment": "2026-01-02",
+      "last_payment": "2026-02-02",
+      "payments": [
+        {
+          "evidence_id": "EPOCH2-PAID-022",
+          "provider": "ElevenLabs",
+          "date": "2026-02-02",
+          "amount_paid": 22,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        },
+        {
+          "evidence_id": "EPOCH2-PAID-033",
+          "provider": "ElevenLabs",
+          "date": "2026-01-02",
+          "amount_paid": 11,
+          "currency_display": "$",
+          "currency_iso_verified": null,
+          "description": "AI-tool receipt; service line not classified",
+          "verification": "Fresh provider email body, explicit Amount paid; deduplicated by receipt key"
+        }
+      ]
+    }
+  ],
+  "all_time_spend": null,
+  "net_of_refunds": null,
+  "openai_paid_amount": null,
+  "limits": [
+    "Bounded selected providers/mailbox queries; not all AI investment.",
+    "Receipt documents payment, not business ROI, expense reimbursement or exclusively professional use.",
+    "No failed-payment amount counted; no unpaid invoice counted.",
+    "Refunds and account reconciliation not reviewed; documented gross payments are not net spend.",
+    "No monetary estimate inferred from token usage.",
+    "No OpenAI successful receipt located in the narrow query; absence here is not proof of zero spend."
+  ]
+}
