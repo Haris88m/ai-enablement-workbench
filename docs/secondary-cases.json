@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "id": "SMASH-DOC-ARCH-01",
+      "title": "Restaurant operations and ERP design",
+      "status": "Implemented prototype mechanisms inspected; current deployment and business outcomes not freshly verified",
+      "summary": "The restaurant ERP source implements an invoice-extraction endpoint with authenticated tenant and manager-role checks, an AI budget precheck and tracked vision-model calls. It returns extracted supplier, reference, date, total and line fields for review. Separate operational functions cover daily close and rule-based specialist reviews.",
+      "mechanisms_documented": [
+        "Invoice image extraction followed by human review",
+        "Daily summaries covering sales, expenses, inventory and shifts",
+        "Specialist finance, roster, marketing and daily-close roles",
+        "Natural-language historical queries backed by dated records",
+        "Task and agent action markers rendered as interface controls"
+      ],
+      "mechanisms_verified": [
+        "Authenticated tenant and role checks",
+        "AI spend precheck and usage-tracked Gemini vision call",
+        "Image or PDF inputs and restricted Storage URL fetching",
+        "JSON extraction with basic numeric and string coercion",
+        "Structured error responses for parsing or model failures"
+      ],
+      "attribution": "The repository README links Haris88m/smash-hq. This supports association with Haris's project repository; it does not establish sole manual authorship or restaurant ownership.",
+      "application_use": "A source-inspected AI-assisted ERP prototype case. Do not claim strict schema enforcement, confidence-score escalation, production reliability or measured business outcomes."
+    },
+    {
+      "id": "SMASH-DOC-PUB-02",
+      "title": "Operational manuals and structured document generation",
+      "status": "Source code and output artifacts inspected",
+      "summary": "Python scripts combine structured recipe records, a product image manifest and operational text into formatted PDF manuals. Separate scripts extract PDF images and parse public menu records. The operating manual leaves local settings and management approval explicit rather than treating draft values as validated practice.",
+      "mechanisms_verified": [
+        "Structured recipe data transformed into printable pages",
+        "Product image manifest lookup",
+        "PDF image extraction and contact-sheet creation",
+        "Public menu item parsing",
+        "Management-confirmation fields retained in operational procedures"
+      ],
+      "attribution": "Code and artifacts exist; Haris personal authorship and live business use require separate attribution evidence.",
+      "application_use": "Do not attach confidential originals. A neutral transformed demonstration can explain the document-production pattern."
+    },
+    {
+      "id": "SIGNAL-GAP-01",
+      "title": "Project Signal",
+      "status": "Research and governance blueprint; no application implementation authorized",
+      "summary": "Project Signal structures a pharmacy-access concept into sourced research, assumptions, decision records, feature evaluations, service hypotheses and implementation-readiness gates. Its current records hold application development pending further research and qualified review.",
+      "mechanisms_verified": [
+        "File-based research and decision system",
+        "JSON schemas for risks, research items, decisions and feature candidates",
+        "Blueprint validation and status-report scripts",
+        "Explicit separation of unverified hypotheses from approved requirements",
+        "Implementation-readiness review"
+      ],
+      "application_use": "A research and requirements-governance case, not an automated pharmacy network, live partner outreach or adopted health platform."
+    }
+  ]
+}

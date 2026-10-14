@@ -160,6 +160,46 @@
       "id": "SYS3-INFERENCE-ROUTER",
       "component": "Inference-tier selector",
       "locator": "Sensitivity, availability and routing reason"
+    },
+    {
+      "id": "SMASH-SRC-07",
+      "component": "ERP invoice extraction endpoint",
+      "locator": "Authentication, tenant and manager-role checks, tracked vision request, field coercion and review output"
+    },
+    {
+      "id": "SMASH-SRC-09",
+      "component": "ERP project readme",
+      "locator": "Association with public project repository"
+    },
+    {
+      "id": "SMASH-SRC-02",
+      "component": "Structured manual generator",
+      "locator": "Recipe records and image manifest become formatted PDF pages"
+    },
+    {
+      "id": "SMASH-SRC-03",
+      "component": "Public menu parser",
+      "locator": "Menu item and asset-manifest generation"
+    },
+    {
+      "id": "SMASH-SRC-04",
+      "component": "PDF asset extraction",
+      "locator": "Image extraction and contact-sheet generation"
+    },
+    {
+      "id": "SMASH-SRC-05",
+      "component": "Draft operating procedure",
+      "locator": "Local settings and management confirmation fields"
+    },
+    {
+      "id": "SIGNAL-SRC-01",
+      "component": "Project governance instructions",
+      "locator": "Research blueprint scope and implementation gate"
+    },
+    {
+      "id": "SIGNAL-SRC-02",
+      "component": "Research project state",
+      "locator": "Hypotheses, decision records and implementation-readiness review"
     }
   ]
 }
