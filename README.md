@@ -2,7 +2,7 @@
 
 Haris Mekic's technical working notebook and implementation companion for an Epoch AI application. I define the operational problem, provide context, direct coding agents and review the result. This repository opens selected actual CareerAgent and Servari mechanisms alongside clearly identified new examples.
 
-Read the [working notebook](https://haris-mekic-epoch-ai.pages.dev) for the development history, technical cases, selected token records, documented investment and a proposed operating plan. This is my independent portfolio, not an Epoch AI product.
+The [interactive portfolio](https://haris-mekic-epoch-ai.pages.dev) has two parts. What I built shows Salience bidding operations, a Slack agent team, CareerAgent, Servari and local-model experiments. My first day at Epoch shows my proposed approach to the role. Animated source-based walkthroughs explain context, tools, execution patterns and handoffs, with detailed engineering notes underneath. The visual records are illustrative, not live client sessions. This is my independent portfolio, not an Epoch AI product.
 
 ## Run it
 
@@ -60,5 +60,7 @@ python -m http.server 4184 --bind 127.0.0.1 --directory website
 ```
 
 Open `http://127.0.0.1:4184`. The site uses plain HTML, CSS and JavaScript, with public JSON and a full Markdown edition. It needs no build system, analytics service or secret configuration. The CV link opens the existing hosted document rather than bundling personal contact details in Git history.
+
+The walkthroughs support pause, manual scene selection, playback speed and reduced motion. A separately labelled five-second GIF loads from Picsart only when opened. `website/engineering.json` contains the public-safe deeper case studies; `website/source-index.json` explains their reviewed source components without publishing private filesystem paths or client source. The source-reviewed Salience narrative covers official-source adapters, normalized and deduplicated notices, shared role context, three parallel analyses followed by operations synthesis, proposal preparation, task generation and calendar synchronization. Source review is distinct from a fresh authenticated integration test.
 
 Code, documentation and this publication were prepared with AI assistance under my direction. The source map separates existing implementation from new publication work.

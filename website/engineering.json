@@ -1,0 +1,525 @@
+{
+  "salience": {
+    "title": "An opportunity becomes a coordinated bid workspace",
+    "voice": "I did not start with an agent and look for something to give it. I started with the work a consultancy has to carry through. Find the right opportunity. Understand the requirements. Know who could deliver it. Prepare a bid that someone can review. I used that operating knowledge to define the context, responsibilities and handoffs, then directed AI-assisted implementation of the system around them.",
+    "implementation_status": "Source-reviewed implementation. The animated example uses illustrative data and does not contact procurement portals or a client database.",
+    "architecture": [
+      "Source adapters",
+      "Normalized opportunity records",
+      "Shared organizational and document context",
+      "Three parallel specialist analyses",
+      "Operations synthesis",
+      "Persistent results and bid workspace",
+      "Tasks, calendar and review"
+    ],
+    "capabilities": [
+      {
+        "id": "official-source-adapters",
+        "title": "Find opportunities at their source",
+        "explanation": "Implemented adapters call the World Bank procurement feed and project-document API, EU TED v3 notice search and the EU Funding and Tenders search service. Other adapters parse feeds or source pages. These are different ingestion methods, not one generic web-search prompt.",
+        "technical": "HTTP adapters, paginated retrieval, provider response mapping, retry handling, normalized RawTender records",
+        "proof": [
+          "S01",
+          "S02",
+          "S03",
+          "S04"
+        ]
+      },
+      {
+        "id": "data-quality",
+        "title": "Turn scattered notices into a usable record",
+        "explanation": "The pipeline filters relevance, normalizes fields, checks a SHA-256 fingerprint of normalized title, buyer and deadline, and separates new notices from duplicates. Existing matches can contribute enrichment instead of creating another opportunity.",
+        "technical": "Extract-transform-load pipeline, cross-source deduplication, batch database lookup, provenance-bearing fields",
+        "proof": [
+          "S05",
+          "S06"
+        ]
+      },
+      {
+        "id": "context-contract",
+        "title": "Give every role the same operating context",
+        "explanation": "A run assembles the opportunity, source document or terms of reference, previous document analysis, organizational truth snapshot and an evidence-quality summary. External expert candidates remain advisory rather than silently becoming internal roster members. The three specialist roles receive this shared context before generating their own outputs.",
+        "technical": "Shared typed context, organization-scoped retrieval, document provenance, confidence degradation, role-specific system instructions",
+        "proof": [
+          "S07",
+          "S08"
+        ]
+      },
+      {
+        "id": "specialist-team",
+        "title": "Let specialists work in parallel, then join the findings",
+        "explanation": "Business development evaluates fit and positioning. Bid coordination examines expert roles, availability, CV actions and budget basis. The requirements specialist structures compliance and evaluation criteria. An operations lead receives their available results for the final synthesis. One rejected specialist call does not erase the other findings.",
+        "technical": "Fan-out and fan-in orchestration, Promise.allSettled, partial-result envelopes, sequential synthesis",
+        "proof": [
+          "S07",
+          "S08"
+        ]
+      },
+      {
+        "id": "staffing-budget",
+        "title": "Make the staffing assumptions visible",
+        "explanation": "The bid output includes proposed roles, recommended and backup experts, skill and geography overlap, language match, availability, staffing gaps, mobilization estimate, CV actions and a budget range with its basis. The implementation removes invented roster IDs from the top-level expert matches. If the roster is empty, it returns a partial result with no fabricated budget.",
+        "technical": "Database-grounded expert matching, reference integrity check, uncertainty handling, staffing and cost assumptions",
+        "proof": [
+          "S08",
+          "S09"
+        ]
+      },
+      {
+        "id": "source-quality",
+        "title": "Separate a missing document from a weak answer",
+        "explanation": "Context quality distinguishes full, partial, metadata-only and blocked source documents. It also considers relationship evidence, expert availability, outcome history and funder familiarity. Unknown availability is treated as a staffing risk rather than proof that an expert can join.",
+        "technical": "Evidence-quality model, source completeness, contextual confidence and graceful degradation",
+        "proof": [
+          "S07",
+          "S09"
+        ]
+      },
+      {
+        "id": "persistent-handoff",
+        "title": "Keep concurrent work from overwriting itself",
+        "explanation": "Specialist results are merged into the opportunity record through a PostgreSQL RPC using an atomic JSONB update. The read model reconstructs complete or partial runs. This gives subsequent steps a stored handoff rather than requiring the team to recreate the context in another chat.",
+        "technical": "Atomic persistence, JSONB merge, run metadata, recoverable read model",
+        "proof": [
+          "S07",
+          "S10"
+        ]
+      },
+      {
+        "id": "workspace-output",
+        "title": "Give the bid manager a workspace, not a transcript",
+        "explanation": "With an authorized Google connection and a configured parent folder, the workflow creates a project workspace with seven areas for source documents, business intelligence, team composition, compliance, technical approach, financial work and proposal assembly. Agent reports can be uploaded into the matching areas. If the integration is unavailable, the analysis does not depend on a successful Drive upload.",
+        "technical": "OAuth-authorized Google Drive SDK integration, structured artifact lifecycle, parallel uploads, nonfatal external-service failure",
+        "proof": [
+          "S07",
+          "S11"
+        ]
+      },
+      {
+        "id": "proposal-assembly",
+        "title": "Carry the analysis into the proposal",
+        "explanation": "The proposal assembler combines opportunity information, bid sections, expert assignments, formatted CVs, partner information, section ordering and a table of contents. A separate assembly path uses available specialist findings for methodology, work plan, positioning and financial proposal content. It prepares a reviewable document structure rather than making the final bid decision.",
+        "technical": "Deterministic document assembly, template configuration, specialist-result composition, PDF and document export preparation",
+        "proof": [
+          "S12"
+        ]
+      },
+      {
+        "id": "execution-layer",
+        "title": "Keep the next action connected to the opportunity",
+        "explanation": "Execution logic derives tasks from missing source packages, missing workspace context, missing specialist analysis and approaching deadlines. It checks for an existing open task before creating another one. Deadline synchronization creates or updates the opportunity's calendar events while preserving manually created events.",
+        "technical": "Readiness-gap rules, application-level idempotency, lifecycle states, deadline synchronization",
+        "proof": [
+          "S13",
+          "S14"
+        ]
+      },
+      {
+        "id": "operating-integrations",
+        "title": "Connect the working environment",
+        "explanation": "Google API services cover Drive, Gmail, Slides and Calendar. The Calendar service includes both pull and push paths. The governed assistant separately loads live database state, memories and workshop context before streaming a response. Its tool-command endpoint applies role and confirmation policies; this is not the same path as the structured specialist team.",
+        "technical": "Direct SDK integrations, contextual chat, server-sent events, role-aware command execution and confirmation",
+        "proof": [
+          "S15",
+          "S16"
+        ]
+      },
+      {
+        "id": "model-execution",
+        "title": "Choose the model path for the work",
+        "explanation": "The structured application services use Gemini 2.5 Flash with task-specific output budgets and JSON response mode. Grounded web research is a separate text pass before JSON analysis. Transient failures use bounded exponential backoff with jitter. The assistant provider is a separate Anthropic streaming integration that reports usage counters.",
+        "technical": "Model-specific execution, output contracts, search grounding, retry budgets, usage metadata",
+        "proof": [
+          "S17",
+          "S18"
+        ]
+      }
+    ],
+    "scenes": [
+      {
+        "id": "discover",
+        "title": "Start from the opportunity",
+        "narration": "I want the team to spend its attention on the right opportunities, not copy notices between websites and spreadsheets.",
+        "input": "Illustrative query: digital public services consulting",
+        "actors": [
+          "World Bank adapter",
+          "EU TED adapter",
+          "Funding search adapter"
+        ],
+        "visual_action": "Three source lines deliver notice records into a common intake. A duplicate folds into its existing record rather than creating a second row.",
+        "output": "One normalized opportunity with its source, buyer, deadline and document links",
+        "technical_caption": "API retrieval → field mapping → relevance filter → fingerprint deduplication",
+        "source_ids": [
+          "S01",
+          "S02",
+          "S03",
+          "S05",
+          "S06"
+        ]
+      },
+      {
+        "id": "context",
+        "title": "Build the context before asking for an answer",
+        "narration": "An agent needs to understand the company and the assignment. I connect the evidence and make the missing information visible before asking it to recommend anything.",
+        "input": "Illustrative record: tender brief, deadline, expert roster and company capabilities",
+        "actors": [
+          "Opportunity record",
+          "Source document",
+          "Organization snapshot",
+          "Evidence quality"
+        ],
+        "visual_action": "A document, roster and organization snapshot assemble around one shared context record. An amber availability field remains unknown.",
+        "output": "Shared context with document completeness, staffing confidence and source boundaries",
+        "technical_caption": "Typed context contract with provenance and confidence degradation",
+        "source_ids": [
+          "S07",
+          "S08",
+          "S09"
+        ]
+      },
+      {
+        "id": "specialists",
+        "title": "Different roles, different responsibilities",
+        "narration": "I define what each digital worker is responsible for and what it must hand back. The value is in how the work joins together.",
+        "input": "The same context is sent to three specialist roles",
+        "actors": [
+          "Business development",
+          "Bid coordination",
+          "Requirements and compliance"
+        ],
+        "visual_action": "The shared context fans out into three concurrent lanes. Each lane types its own short result rather than repeating the same generic answer.",
+        "output": "Illustrative findings: strategic fit; team leader availability unresolved; one required document missing",
+        "technical_caption": "Parallel role prompts and structured result envelopes with partial failure handling",
+        "source_ids": [
+          "S07",
+          "S08",
+          "S09"
+        ]
+      },
+      {
+        "id": "synthesis",
+        "title": "Turn findings into a decision package",
+        "narration": "A bid manager needs the recommendation and the reason behind it. I want the staffing gaps, document gaps and assumptions to arrive together.",
+        "input": "Available specialist findings and their uncertainties",
+        "actors": [
+          "Operations synthesis",
+          "Human bid manager"
+        ],
+        "visual_action": "Three result lanes join into a recommendation sheet. The unresolved staffing and document issues remain visible beside the proposed next steps.",
+        "output": "Illustrative review package: conditional proceed, verify lead availability, obtain missing annex, review budget assumptions",
+        "technical_caption": "Fan-in synthesis → stored complete or partial analysis → human review",
+        "source_ids": [
+          "S07",
+          "S08",
+          "S10"
+        ]
+      },
+      {
+        "id": "artifacts",
+        "title": "Put the work where the team can use it",
+        "narration": "The answer should become a working document, a team plan or a reviewable proposal. It should not disappear in a chat window.",
+        "input": "Persisted specialist results, bid sections and expert assignments",
+        "actors": [
+          "Project workspace",
+          "Proposal assembler"
+        ],
+        "visual_action": "The result sheet separates into named workspace folders and a proposal outline with methodology, work plan, financial assumptions and CV annexes.",
+        "output": "Organized project artifacts and an assembled proposal structure for review",
+        "technical_caption": "Atomic PostgreSQL persistence → Google Drive workspace → document assembly",
+        "source_ids": [
+          "S10",
+          "S11",
+          "S12"
+        ]
+      },
+      {
+        "id": "follow-through",
+        "title": "Make the next action part of the system",
+        "narration": "Operations means following through. I connect readiness gaps to tasks and deadlines so the team can see what has to happen next.",
+        "input": "Opportunity state, missing source package or analysis and the submission deadline",
+        "actors": [
+          "Task rules",
+          "Calendar synchronization",
+          "Bid manager"
+        ],
+        "visual_action": "A missing source package becomes an upload task, missing specialist analysis becomes an analysis task, and the submission date becomes a calendar event. A repeat pass checks existing records.",
+        "output": "Illustrative generated actions: upload source package, run missing analysis, review approaching deadline",
+        "technical_caption": "Gap-derived tasks, duplicate checks, deadline updates and lifecycle review gates",
+        "source_ids": [
+          "S13",
+          "S14",
+          "S19"
+        ]
+      }
+    ],
+    "adaptation": "The reusable part is the operating structure. A new organization would need its own approved sources, role responsibilities, expert or staff records, decision criteria, review policy and output templates. Those inputs must be configured and tested with its people. This is an architecture to adapt, not proof that the existing implementation is ready for every company without further work.",
+    "review_boundaries": [
+      "Source adapters exist; no live response or uptime check was performed for this review.",
+      "Structured JSON generation is implemented; this does not establish universal runtime schema validation.",
+      "The animation is an illustrative replay of inspected code paths, not a recording of a production client run.",
+      "No quantified business saving, successful bid, client adoption or production security certification is asserted."
+    ]
+  },
+  "systems": {
+    "animationLabel": "Source-based walkthrough. Example inputs illustrate the implementation, not a live client session.",
+    "cases": [
+      {
+        "id": "slack-workforce",
+        "title": "A task becomes work across an AI team",
+        "eyebrow": "Slack agent runtime",
+        "firstPerson": "I wanted to give a team an assignment in the place where we already work, then see who picked it up, what they changed and what still needed a decision. The important part was not giving the agents impressive job titles. It was giving each one the right context and a clear return contract.",
+        "status": "Implemented private runtime. Source inspected; no live call in this review.",
+        "contribution": "I directed the role-based working model, context boundaries and acceptance requirements through AI-assisted development. My instruction that a fix must be future-proof shows the maintenance expectation behind the implementation.",
+        "flow": [
+          {
+            "label": "Receive",
+            "detail": "A Slack task enters a dedicated work path. The listener returns while delegation runs in a background thread.",
+            "visual": "One task arrives in a thread. The task stays attached to its original conversation."
+          },
+          {
+            "label": "Plan",
+            "detail": "A coordinating model returns JSON with a staffing rationale and independent subtasks. The parser accepts only known engineering-role keys and caps the list at four by default.",
+            "visual": "The coordinator turns the task into a backend assignment, a frontend assignment and a QA assignment. Label this as illustrative staffing."
+          },
+          {
+            "label": "Build",
+            "detail": "Workers run sequentially from their own role homes with project instructions and memory. The parent task is context; the assigned subtask is the work scope. Tools are enabled on this build path.",
+            "visual": "Highlight each worker in turn. Show role context entering, a file artifact leaving, and DONE, PROGRESS or BLOCKED beside the report."
+          },
+          {
+            "label": "Return",
+            "detail": "Each role reports files touched, verification and remaining work in the same Slack thread. A final synthesis combines those reports. If synthesis fails, a mechanical summary preserves the recorded statuses.",
+            "visual": "The thread fills with structured handoffs, then closes with an artifact summary and the next decision."
+          }
+        ],
+        "contextEngineering": "The build prompt separates the parent task from the worker's specific assignment, adds a role specialty and requires a status-tagged handoff. The coordinator receives bounded excerpts of each worker's reply for synthesis. These are runtime context contracts, not changes to model weights.",
+        "mechanisms": [
+          "JSON task decomposition",
+          "Allow-listed role routing",
+          "Per-role working directories",
+          "Subprocess timeouts",
+          "Threaded Slack delivery",
+          "Status-tagged handoffs",
+          "Mechanical fallback synthesis",
+          "Provider-selectable sealed chat"
+        ],
+        "controls": [
+          "Four subtasks and one active delegation are default configuration limits, not performance statistics.",
+          "The leaf flag and denied Task tool block nested delegation. Tool restrictions protect secret locations and the runtime's own control files.",
+          "The 2,700-second total budget is checked before each worker. It is not a hard wall-clock deadline across every call.",
+          "A separate sealed chat path replaces inherited settings and exposes no tools through the SDK. Do not describe this restriction as applying to the build workers.",
+          "CLI, SDK, OpenAI-compatible and Gemini adapters are selectable. Selected-role canaries and CLI rollback support bounded engine changes."
+        ],
+        "outputs": [
+          "Task staffing rationale",
+          "Role-specific implementation reports",
+          "Files and verification notes",
+          "Blocked-work status",
+          "Thread-level closing summary"
+        ],
+        "boundary": "The final runtime ok flag means the orchestration returned, not that every worker completed successfully. Source implements sequential workers; this case must not be animated as concurrent fan-out. No commercial adoption or measured time savings is claimed.",
+        "sourceIds": [
+          "SYS3-SLACK-DELEGATE",
+          "SYS3-SLACK-BRIDGE",
+          "SYS3-SLACK-SDK",
+          "EPOCH2-HIS-JUNE"
+        ]
+      },
+      {
+        "id": "servari-control",
+        "title": "Keep the working method when the model changes",
+        "eyebrow": "Servari control shell",
+        "firstPerson": "I do not want my work to depend on one chat window remembering everything. I want to change the model, keep the context that matters and still know which actions need my decision. Servari is where I made those controls visible.",
+        "status": "Public local-first Python and React implementation.",
+        "contribution": "I defined the digital-office interaction, model portability and human approval boundaries, and directed the AI-assisted implementation and review.",
+        "flow": [
+          {
+            "label": "Bring context",
+            "detail": "The chat adapter maps the last twenty channel turns to user/assistant messages and prepends a configurable system instruction.",
+            "visual": "A short conversation becomes a visible message envelope with a bounded context label."
+          },
+          {
+            "label": "Use a model",
+            "detail": "A standard-library Python HTTP request calls an OpenAI-compatible chat-completions endpoint. Output defaults to a 2,048-token cap. Missing configuration returns a no-model state.",
+            "visual": "The same message envelope routes to a configurable model endpoint. Do not show a fabricated generated answer."
+          },
+          {
+            "label": "Check authority",
+            "detail": "A separate deterministic policy evaluates an integer risk score from four through twenty and the agent's autonomy level. High-risk and malformed scores queue for review.",
+            "visual": "An illustrative high-risk action reaches the approval queue even with the autonomy dial at level five."
+          },
+          {
+            "label": "Preserve work",
+            "detail": "Context checks look for active work, a current work entry, risk records, pending decisions and a session record. The retention module snapshots enrolled files and can keep or restore a change after a metric comparison.",
+            "visual": "Working records persist outside the chat. A changed artifact is compared to its baseline and either retained or restored."
+          }
+        ],
+        "contextEngineering": "Admission rules, eviction priorities, survival pins and a recovery contract make context an explicit operational concern. Context pressure is estimated from transcript size and work-log distance; it is not direct provider context-window telemetry.",
+        "mechanisms": [
+          "Python standard-library HTTP server",
+          "React and TypeScript interface",
+          "Provider-agnostic message adapter",
+          "L0–L5 action policy",
+          "Durable file-backed state",
+          "Context survival checks",
+          "Hash-verified snapshot restoration"
+        ],
+        "outputs": [
+          "Model reply or explicit unavailable state",
+          "Act, report or queue policy decision",
+          "Missing-context report",
+          "Checkpoint record",
+          "Keep-or-revert decision for enrolled files"
+        ],
+        "controls": [
+          "No configured model means no fabricated response.",
+          "Risk policy returns a decision; it does not itself execute arbitrary actions.",
+          "Retention restores enrolled files, not an entire machine or untracked external state."
+        ],
+        "boundary": "This public shell is not presented as a shipped concurrent autonomous execution engine. Provider chat, context policy, action policy and retention are distinct modules; the walkthrough must not imply that every model reply automatically runs the full chain.",
+        "publicCode": "https://github.com/Haris88m/servari-open",
+        "sourceIds": [
+          "SYS3-SERVARI-CHAT",
+          "SYS3-SERVARI-POLICY",
+          "SYS3-SERVARI-CONTEXT",
+          "SYS3-SERVARI-RETENTION"
+        ]
+      },
+      {
+        "id": "career-evidence",
+        "title": "The application has to survive checking",
+        "eyebrow": "CareerAgent evidence and action workflow",
+        "firstPerson": "This application is part of the work itself. I use AI to research roles, recover the relevant parts of my experience and prepare material for a particular company. I needed a system that could explain every claim and remember what happened, not simply produce another confident letter.",
+        "status": "Personal operational system supporting this job search.",
+        "contribution": "I define the career facts, owner decisions and approval boundaries, challenge weak examples and direct separate evidence, writing, implementation and review work.",
+        "flow": [
+          {
+            "label": "Find the basis",
+            "detail": "Python queries successful source-index records in SQLite, performs all-term lexical matching and returns bounded, privacy-minimized excerpts with source identifiers.",
+            "visual": "A vacancy requirement selects a source excerpt, not an entire private document."
+          },
+          {
+            "label": "Bind the claim",
+            "detail": "The preparation workflow links exact wording to claim and evidence identifiers and associates it with a reviewed artifact. Hashes distinguish the reviewed file from later edits.",
+            "visual": "Requirement, claim, source and document become linked records. Show synthetic IDs rather than personal source contents."
+          },
+          {
+            "label": "Control action",
+            "detail": "A central coordinator checks the current package, approval route and a global lease. Duplicate, active and unknown-outcome attempts stop a fresh action.",
+            "visual": "The reviewed package reaches a decision gate. An UNKNOWN result takes the reconcile route rather than a retry loop."
+          },
+          {
+            "label": "Reconcile",
+            "detail": "Receipt-backed status is distinct from an agent's completion message. Interrupted attempts without a trusted terminal state become UNKNOWN and require reconciliation.",
+            "visual": "A verified receipt closes a synthetic case. A missing receipt leaves a visible unresolved state."
+          }
+        ],
+        "contextEngineering": "The working context separates a source, a supported claim, owner confirmation, a generated artifact and an external outcome. Handoffs preserve identifiers and file identity so a new agent can continue without inventing the missing history.",
+        "mechanisms": [
+          "SQLite source and application state",
+          "Lexical evidence retrieval",
+          "Privacy-minimized excerpts",
+          "Claim-level provenance",
+          "SHA-256 artifact binding",
+          "Global action lease",
+          "Idempotency and duplicate checks",
+          "Unknown-outcome recovery"
+        ],
+        "outputs": [
+          "Role-specific evidence shortlist",
+          "Traceable technical answers",
+          "Reviewed CV derivative",
+          "Outstanding-decision record",
+          "Receipt or explicit unresolved outcome"
+        ],
+        "controls": [
+          "Retrieval is lexical, not a vector database or semantic embedding search.",
+          "A prepared document and a submitted application are different states.",
+          "The Epoch application is not described as submitted."
+        ],
+        "boundary": "This is AI-assisted career work with human factual and permission decisions. It is not a promise of fully autonomous applications or a claim that every previous application passed every gate at every historical moment.",
+        "sourceIds": [
+          "SYS3-CAREER-RETRIEVAL",
+          "SYS3-CAREER-COORDINATOR",
+          "EPOCH2-DEV-01",
+          "EPOCH2-DEV-09"
+        ]
+      },
+      {
+        "id": "local-model-lab",
+        "title": "Learn the model layer by building an experiment",
+        "eyebrow": "Local adaptation and inference routing",
+        "firstPerson": "I also went below the prompt. I wanted to understand what it takes to prepare examples, adapt a small model and choose where a request should run. That work taught me to keep a saved training result separate from an improvement I can actually demonstrate.",
+        "status": "Historical local LoRA experiment with saved adapter and run metadata; routing implementation inspected.",
+        "contribution": "I directed AI-assisted experimentation around practical operating needs. The inspected training driver identifies AI-agent construction; this is not a claim that I manually authored every training line.",
+        "flow": [
+          {
+            "label": "Prepare",
+            "detail": "JSONL prompt/completion pairs become instruction-formatted examples, tokenized to a maximum sequence length of 512.",
+            "visual": "Illustrative text records become token batches. No private training examples are shown."
+          },
+          {
+            "label": "Adapt",
+            "detail": "A pretrained causal language model receives PEFT LoRA adapters. The saved Qwen2.5-1.5B-Instruct run uses rank sixteen and four named target modules.",
+            "visual": "Keep the base model visually fixed while small adapter layers change."
+          },
+          {
+            "label": "Record",
+            "detail": "The run saves adapter configuration, weights and training metadata. The inspected summary records 2,721 pairs, two epochs and 8,257,536 trainable parameters.",
+            "visual": "Show those three measured dimensions and an adapter artifact, not an invented accuracy gauge."
+          },
+          {
+            "label": "Route",
+            "detail": "A separate inference-tier selector considers sensitivity, local availability and healthy registry nodes, then produces a tier and reasoning. The documented budget is a routing signal, not a universally enforced spend cap.",
+            "visual": "A low-sensitivity example checks local availability; a high-sensitivity example takes the hosted route. Label it a source-based routing illustration."
+          }
+        ],
+        "contextEngineering": "The training path changes a small pretrained model through adapters. That is technically different from the role prompts, memory files and SOP context used by the other systems. Keeping the distinction explicit makes the portfolio more credible.",
+        "mechanisms": [
+          "Python JSONL preparation",
+          "Transformers tokenization",
+          "PyTorch causal language model",
+          "PEFT LoRA",
+          "Gradient accumulation",
+          "Gradient checkpointing",
+          "Saved run metadata",
+          "Deterministic inference-tier selection"
+        ],
+        "metrics": {
+          "trainingPairs": 2721,
+          "epochs": 2,
+          "loraRank": 16,
+          "loraAlpha": 32,
+          "trainableParameters": 8257536,
+          "trainingRuntimeSeconds": 4847.7373,
+          "runtimeMeaning": "One recorded machine training run, not human working hours",
+          "targetModules": [
+            "q_proj",
+            "v_proj",
+            "o_proj",
+            "down_proj"
+          ]
+        },
+        "outputs": [
+          "Saved low-rank adapter",
+          "Reproducible configuration",
+          "Training log",
+          "Tier selection and explanation"
+        ],
+        "controls": [
+          "A training loss does not establish held-out task improvement.",
+          "The selected run is not the full history of model work.",
+          "Local execution has hardware and energy costs even where a provider call has no fee.",
+          "The selector does not independently guarantee the requested latency or budget."
+        ],
+        "boundary": "No foundation model was trained from scratch. No held-out quality gain, commercial deployment or human-hours total is claimed.",
+        "sourceIds": [
+          "SYS3-LORA-DRIVER",
+          "SYS3-LORA-RUN",
+          "SYS3-LORA-CONFIG",
+          "SYS3-INFERENCE-ROUTER"
+        ]
+      }
+    ]
+  }
+}

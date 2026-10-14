@@ -1,0 +1,165 @@
+{
+  "scope": "Source-location references, not publication of private repositories. Examples below are redrawn illustrations, not a live system recording.",
+  "sources": [
+    {
+      "id": "S04",
+      "component": "EBRD source adapter",
+      "locator": "source-page HTML and legacy RSS retrieval, not a JSON API"
+    },
+    {
+      "id": "S01",
+      "component": "World Bank source adapter",
+      "locator": "notice retrieval, mapping and project-document lookup"
+    },
+    {
+      "id": "S02",
+      "component": "EU TED source adapter",
+      "locator": "v3 POST search, pagination and response mapping"
+    },
+    {
+      "id": "S03",
+      "component": "EU Funding and Tenders adapter",
+      "locator": "search service POST request"
+    },
+    {
+      "id": "S05",
+      "component": "Ingestion pipeline",
+      "locator": "relevance, normalization, insertion and enrichment"
+    },
+    {
+      "id": "S06",
+      "component": "Deduplication module",
+      "locator": "SHA-256 fingerprint from title, buyer and deadline"
+    },
+    {
+      "id": "S07",
+      "component": "Specialist orchestration",
+      "locator": "shared context, Promise.allSettled and subsequent synthesis"
+    },
+    {
+      "id": "S08",
+      "component": "Analysis contracts",
+      "locator": "context and specialist result TypeScript interfaces"
+    },
+    {
+      "id": "S09",
+      "component": "Bid coordination service",
+      "locator": "roster load, partial result and top-level expert reference check"
+    },
+    {
+      "id": "S10",
+      "component": "Result persistence",
+      "locator": "atomic PostgreSQL JSONB merge RPC"
+    },
+    {
+      "id": "S11",
+      "component": "Workspace service",
+      "locator": "seven-area Google Drive workspace"
+    },
+    {
+      "id": "S12",
+      "component": "Proposal assembler",
+      "locator": "sections, expert assignments, CV annexes and table of contents"
+    },
+    {
+      "id": "S13",
+      "component": "Execution task generator",
+      "locator": "readiness gaps and open-task duplicate check"
+    },
+    {
+      "id": "S14",
+      "component": "Deadline synchronizer",
+      "locator": "create/update opportunity events"
+    },
+    {
+      "id": "S15",
+      "component": "Calendar service",
+      "locator": "Google SDK pull/push integration"
+    },
+    {
+      "id": "S16",
+      "component": "Control-plane endpoints",
+      "locator": "separate contextual chat and governed command paths"
+    },
+    {
+      "id": "S17",
+      "component": "Structured generation client",
+      "locator": "Gemini JSON mode, parse repair, bounded retry"
+    },
+    {
+      "id": "S18",
+      "component": "AI configuration",
+      "locator": "task-specific model and output budgets"
+    },
+    {
+      "id": "S19",
+      "component": "Lifecycle gates",
+      "locator": "stage transition and checklist rules"
+    },
+    {
+      "id": "SYS3-SLACK-DELEGATE",
+      "component": "Slack build delegation",
+      "locator": "Validated role roster, sequential worker invocation and status-tagged synthesis"
+    },
+    {
+      "id": "SYS3-SLACK-BRIDGE",
+      "component": "Slack message bridge",
+      "locator": "Thread routing, sealed working directory, selectable provider and reply guard"
+    },
+    {
+      "id": "SYS3-SLACK-SDK",
+      "component": "Sealed chat adapter",
+      "locator": "Replacement system prompt, empty tools and denied actions"
+    },
+    {
+      "id": "SYS3-SERVARI-CHAT",
+      "component": "Servari chat adapter",
+      "locator": "Bounded turns, OpenAI-compatible HTTP and explicit unavailable state"
+    },
+    {
+      "id": "SYS3-SERVARI-POLICY",
+      "component": "Servari action policy",
+      "locator": "Integer risk validation and L0–L5 queue decision"
+    },
+    {
+      "id": "SYS3-SERVARI-CONTEXT",
+      "component": "Servari context policy",
+      "locator": "Survival checks and checkpoint contract"
+    },
+    {
+      "id": "SYS3-SERVARI-RETENTION",
+      "component": "Servari retention",
+      "locator": "Enrolled-file snapshots and hash-verified restore"
+    },
+    {
+      "id": "SYS3-CAREER-RETRIEVAL",
+      "component": "CareerAgent evidence query",
+      "locator": "SQLite successful-extraction lookup and minimized excerpts"
+    },
+    {
+      "id": "SYS3-CAREER-COORDINATOR",
+      "component": "CareerAgent action coordinator",
+      "locator": "Lease, duplicate guard and unknown-outcome reconciliation"
+    },
+    {
+      "id": "SYS3-LORA-DRIVER",
+      "component": "Local LoRA training driver",
+      "locator": "JSONL formatting, tokenization and PEFT training"
+    },
+    {
+      "id": "SYS3-LORA-RUN",
+      "component": "Saved local run summary",
+      "locator": "Training pairs, epochs, trainable parameters and machine runtime"
+    },
+    {
+      "id": "SYS3-LORA-CONFIG",
+      "component": "Saved adapter configuration",
+      "locator": "Pretrained Qwen model, LoRA type and target modules"
+    },
+    {
+      "id": "SYS3-INFERENCE-ROUTER",
+      "component": "Inference-tier selector",
+      "locator": "Sensitivity, availability and routing reason"
+    }
+  ]
+}

@@ -427,3 +427,200 @@ Scope: Held-out task improvement unverified; Training runtime is not human worki
 harism88@outlook.com
 
 The application motivation field is not reproduced on this technical site. No photograph or cover letter is included.
+
+
+# Deeper implementation review
+
+I did not start with an agent and look for something to give it. I started with the work a consultancy has to carry through. Find the right opportunity. Understand the requirements. Know who could deliver it. Prepare a bid that someone can review. I used that operating knowledge to define the context, responsibilities and handoffs, then directed AI-assisted implementation of the system around them.
+
+## Find opportunities at their source
+
+Implemented adapters call the World Bank procurement feed and project-document API, EU TED v3 notice search and the EU Funding and Tenders search service. Other adapters parse feeds or source pages. These are different ingestion methods, not one generic web-search prompt.
+
+HTTP adapters, paginated retrieval, provider response mapping, retry handling, normalized RawTender records
+
+Source references: S01, S02, S03, S04
+
+## Turn scattered notices into a usable record
+
+The pipeline filters relevance, normalizes fields, checks a SHA-256 fingerprint of normalized title, buyer and deadline, and separates new notices from duplicates. Existing matches can contribute enrichment instead of creating another opportunity.
+
+Extract-transform-load pipeline, cross-source deduplication, batch database lookup, provenance-bearing fields
+
+Source references: S05, S06
+
+## Give every role the same operating context
+
+A run assembles the opportunity, source document or terms of reference, previous document analysis, organizational truth snapshot and an evidence-quality summary. External expert candidates remain advisory rather than silently becoming internal roster members. The three specialist roles receive this shared context before generating their own outputs.
+
+Shared typed context, organization-scoped retrieval, document provenance, confidence degradation, role-specific system instructions
+
+Source references: S07, S08
+
+## Let specialists work in parallel, then join the findings
+
+Business development evaluates fit and positioning. Bid coordination examines expert roles, availability, CV actions and budget basis. The requirements specialist structures compliance and evaluation criteria. An operations lead receives their available results for the final synthesis. One rejected specialist call does not erase the other findings.
+
+Fan-out and fan-in orchestration, Promise.allSettled, partial-result envelopes, sequential synthesis
+
+Source references: S07, S08
+
+## Make the staffing assumptions visible
+
+The bid output includes proposed roles, recommended and backup experts, skill and geography overlap, language match, availability, staffing gaps, mobilization estimate, CV actions and a budget range with its basis. The implementation removes invented roster IDs from the top-level expert matches. If the roster is empty, it returns a partial result with no fabricated budget.
+
+Database-grounded expert matching, reference integrity check, uncertainty handling, staffing and cost assumptions
+
+Source references: S08, S09
+
+## Separate a missing document from a weak answer
+
+Context quality distinguishes full, partial, metadata-only and blocked source documents. It also considers relationship evidence, expert availability, outcome history and funder familiarity. Unknown availability is treated as a staffing risk rather than proof that an expert can join.
+
+Evidence-quality model, source completeness, contextual confidence and graceful degradation
+
+Source references: S07, S09
+
+## Keep concurrent work from overwriting itself
+
+Specialist results are merged into the opportunity record through a PostgreSQL RPC using an atomic JSONB update. The read model reconstructs complete or partial runs. This gives subsequent steps a stored handoff rather than requiring the team to recreate the context in another chat.
+
+Atomic persistence, JSONB merge, run metadata, recoverable read model
+
+Source references: S07, S10
+
+## Give the bid manager a workspace, not a transcript
+
+With an authorized Google connection and a configured parent folder, the workflow creates a project workspace with seven areas for source documents, business intelligence, team composition, compliance, technical approach, financial work and proposal assembly. Agent reports can be uploaded into the matching areas. If the integration is unavailable, the analysis does not depend on a successful Drive upload.
+
+OAuth-authorized Google Drive SDK integration, structured artifact lifecycle, parallel uploads, nonfatal external-service failure
+
+Source references: S07, S11
+
+## Carry the analysis into the proposal
+
+The proposal assembler combines opportunity information, bid sections, expert assignments, formatted CVs, partner information, section ordering and a table of contents. A separate assembly path uses available specialist findings for methodology, work plan, positioning and financial proposal content. It prepares a reviewable document structure rather than making the final bid decision.
+
+Deterministic document assembly, template configuration, specialist-result composition, PDF and document export preparation
+
+Source references: S12
+
+## Keep the next action connected to the opportunity
+
+Execution logic derives tasks from missing source packages, missing workspace context, missing specialist analysis and approaching deadlines. It checks for an existing open task before creating another one. Deadline synchronization creates or updates the opportunity's calendar events while preserving manually created events.
+
+Readiness-gap rules, application-level idempotency, lifecycle states, deadline synchronization
+
+Source references: S13, S14
+
+## Connect the working environment
+
+Google API services cover Drive, Gmail, Slides and Calendar. The Calendar service includes both pull and push paths. The governed assistant separately loads live database state, memories and workshop context before streaming a response. Its tool-command endpoint applies role and confirmation policies; this is not the same path as the structured specialist team.
+
+Direct SDK integrations, contextual chat, server-sent events, role-aware command execution and confirmation
+
+Source references: S15, S16
+
+## Choose the model path for the work
+
+The structured application services use Gemini 2.5 Flash with task-specific output budgets and JSON response mode. Grounded web research is a separate text pass before JSON analysis. Transient failures use bounded exponential backoff with jitter. The assistant provider is a separate Anthropic streaming integration that reports usage counters.
+
+Model-specific execution, output contracts, search grounding, retry budgets, usage metadata
+
+Source references: S17, S18
+
+## A task becomes work across an AI team
+
+I wanted to give a team an assignment in the place where we already work, then see who picked it up, what they changed and what still needed a decision. The important part was not giving the agents impressive job titles. It was giving each one the right context and a clear return contract.
+
+### Receive
+
+A Slack task enters a dedicated work path. The listener returns while delegation runs in a background thread.
+
+### Plan
+
+A coordinating model returns JSON with a staffing rationale and independent subtasks. The parser accepts only known engineering-role keys and caps the list at four by default.
+
+### Build
+
+Workers run sequentially from their own role homes with project instructions and memory. The parent task is context; the assigned subtask is the work scope. Tools are enabled on this build path.
+
+### Return
+
+Each role reports files touched, verification and remaining work in the same Slack thread. A final synthesis combines those reports. If synthesis fails, a mechanical summary preserves the recorded statuses.
+
+The build prompt separates the parent task from the worker's specific assignment, adds a role specialty and requires a status-tagged handoff. The coordinator receives bounded excerpts of each worker's reply for synthesis. These are runtime context contracts, not changes to model weights.
+
+The final runtime ok flag means the orchestration returned, not that every worker completed successfully. Source implements sequential workers; this case must not be animated as concurrent fan-out. No commercial adoption or measured time savings is claimed.
+
+## Keep the working method when the model changes
+
+I do not want my work to depend on one chat window remembering everything. I want to change the model, keep the context that matters and still know which actions need my decision. Servari is where I made those controls visible.
+
+### Bring context
+
+The chat adapter maps the last twenty channel turns to user/assistant messages and prepends a configurable system instruction.
+
+### Use a model
+
+A standard-library Python HTTP request calls an OpenAI-compatible chat-completions endpoint. Output defaults to a 2,048-token cap. Missing configuration returns a no-model state.
+
+### Check authority
+
+A separate deterministic policy evaluates an integer risk score from four through twenty and the agent's autonomy level. High-risk and malformed scores queue for review.
+
+### Preserve work
+
+Context checks look for active work, a current work entry, risk records, pending decisions and a session record. The retention module snapshots enrolled files and can keep or restore a change after a metric comparison.
+
+Admission rules, eviction priorities, survival pins and a recovery contract make context an explicit operational concern. Context pressure is estimated from transcript size and work-log distance; it is not direct provider context-window telemetry.
+
+This public shell is not presented as a shipped concurrent autonomous execution engine. Provider chat, context policy, action policy and retention are distinct modules; the walkthrough must not imply that every model reply automatically runs the full chain.
+
+## The application has to survive checking
+
+This application is part of the work itself. I use AI to research roles, recover the relevant parts of my experience and prepare material for a particular company. I needed a system that could explain every claim and remember what happened, not simply produce another confident letter.
+
+### Find the basis
+
+Python queries successful source-index records in SQLite, performs all-term lexical matching and returns bounded, privacy-minimized excerpts with source identifiers.
+
+### Bind the claim
+
+The preparation workflow links exact wording to claim and evidence identifiers and associates it with a reviewed artifact. Hashes distinguish the reviewed file from later edits.
+
+### Control action
+
+A central coordinator checks the current package, approval route and a global lease. Duplicate, active and unknown-outcome attempts stop a fresh action.
+
+### Reconcile
+
+Receipt-backed status is distinct from an agent's completion message. Interrupted attempts without a trusted terminal state become UNKNOWN and require reconciliation.
+
+The working context separates a source, a supported claim, owner confirmation, a generated artifact and an external outcome. Handoffs preserve identifiers and file identity so a new agent can continue without inventing the missing history.
+
+This is AI-assisted career work with human factual and permission decisions. It is not a promise of fully autonomous applications or a claim that every previous application passed every gate at every historical moment.
+
+## Learn the model layer by building an experiment
+
+I also went below the prompt. I wanted to understand what it takes to prepare examples, adapt a small model and choose where a request should run. That work taught me to keep a saved training result separate from an improvement I can actually demonstrate.
+
+### Prepare
+
+JSONL prompt/completion pairs become instruction-formatted examples, tokenized to a maximum sequence length of 512.
+
+### Adapt
+
+A pretrained causal language model receives PEFT LoRA adapters. The saved Qwen2.5-1.5B-Instruct run uses rank sixteen and four named target modules.
+
+### Record
+
+The run saves adapter configuration, weights and training metadata. The inspected summary records 2,721 pairs, two epochs and 8,257,536 trainable parameters.
+
+### Route
+
+A separate inference-tier selector considers sensitivity, local availability and healthy registry nodes, then produces a tier and reasoning. The documented budget is a routing signal, not a universally enforced spend cap.
+
+The training path changes a small pretrained model through adapters. That is technically different from the role prompts, memory files and SOP context used by the other systems. Keeping the distinction explicit makes the portfolio more credible.
+
+No foundation model was trained from scratch. No held-out quality gain, commercial deployment or human-hours total is claimed.

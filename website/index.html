@@ -3,84 +3,196 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Haris Mekic · AI enablement, in practice</title>
+    <title>Haris Mekic | AI, put to work</title>
     <meta
       name="description"
-      content="A technical working notebook for Epoch AI. CareerAgent, contextual workflows, model experiments, inspectable code and an implementation plan by Haris Mekic."
+      content="Haris Mekic’s AI engineering practice, shown through source-reviewed workflows and a proposed approach to AI enablement at Epoch."
     />
-    <meta name="color-scheme" content="light" />
     <link rel="icon" href="mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
-    <script src="app.js" defer></script>
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="notebook.md"
+      title="Detailed technical notebook"
+    />
+    <script type="module" src="app.js"></script>
   </head>
   <body>
-    <a class="skip" href="#main">Skip to notebook</a>
-    <div class="workspace">
-      <aside class="rail">
-        <a class="identity" href="#start"
-          ><span class="monogram" aria-hidden="true">hm</span
-          ><span>Haris Mekic<small>AI enablement, in practice</small></span></a
-        ><button
-          id="menu-toggle"
-          aria-expanded="false"
-          aria-controls="chapters"
-        >
-          Explore notebook <span aria-hidden="true">☰</span>
+    <a class="skip" href="#main">Skip to the working example</a>
+    <header class="topbar">
+      <a class="identity" href="#work/salience"
+        ><img src="mark.svg" alt="" width="32" height="32" /><span
+          >Haris Mekic<small>SOAP · Super Operations AI Procedures</small></span
+        ></a
+      >
+      <nav aria-label="Two-part portfolio">
+        <a href="#work/salience" data-section="work">What I built</a
+        ><a href="#epoch/listen" data-section="epoch">My first day at Epoch</a>
+      </nav>
+      <a
+        class="source-link"
+        href="https://github.com/Haris88m/ai-enablement-workbench"
+        >Public code <span aria-hidden="true">↗</span></a
+      >
+    </header>
+    <main id="main" tabindex="-1">
+      <div class="opening">
+        <div>
+          <p class="eyebrow" id="eyebrow">My working practice, opened up</p>
+          <h1 id="headline">AI, put to work.</h1>
+        </div>
+        <p id="intro">
+          I start with someone’s work. I listen, build the context and turn it
+          into a system people and AI agents can work through together. This is
+          how I have been developing SOAP.
+        </p>
+      </div>
+      <div class="workspace">
+        <aside
+          class="case-list"
+          aria-label="Choose a working example"
+          id="cases"
+        ></aside>
+        <section class="stage" aria-labelledby="case-title">
+          <div class="stage-top">
+            <div>
+              <p class="eyebrow" id="case-type"></p>
+              <h2 id="case-title">Loading the working examples</h2>
+            </div>
+            <button
+              id="details-open"
+              class="text-button"
+              aria-expanded="false"
+              aria-controls="details"
+            >
+              Read the engineering
+            </button>
+          </div>
+          <div class="scene-layout">
+            <div class="visual" id="visual" aria-label="Illustrated workflow">
+              <svg
+                class="connections"
+                viewBox="0 0 840 370"
+                aria-hidden="true"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M80 184 H250 Q275 184 275 150 V90 Q275 68 302 68 H495 Q520 68 520 92 V150 Q520 184 545 184 H765"
+                />
+                <path d="M80 184 H765" />
+                <path
+                  d="M250 184 Q275 184 275 216 V280 Q275 303 302 303 H495 Q520 303 520 280 V216 Q520 184 545 184"
+                />
+                <path
+                  class="signal"
+                  d="M80 184 H250 Q275 184 275 150 V90 Q275 68 302 68 H495 Q520 68 520 92 V150 Q520 184 545 184 H765"
+                />
+              </svg>
+              <div class="input-node">
+                <span class="micro">INPUT</span
+                ><strong id="input-title"></strong>
+                <p id="input-body"></p>
+                <span class="node-foot" id="input-foot"></span>
+              </div>
+              <div class="context-node">
+                <span class="micro">CONTEXT</span
+                ><strong id="context-title"></strong>
+                <div id="context-fields"></div>
+              </div>
+              <div class="worker-stack" id="workers"></div>
+              <div class="output-node">
+                <span class="micro">HANDOFF</span
+                ><strong id="output-title"></strong>
+                <div id="output-lines"></div>
+                <span class="node-foot" id="output-foot"></span>
+              </div>
+              <div class="cursor" aria-hidden="true">
+                <svg viewBox="0 0 22 26">
+                  <path
+                    d="M2 2 L3 22 L9 17 L13 25 L17 23 L13 15 L21 14 Z"
+                  /></svg
+                ><span>Illustrated replay</span>
+              </div>
+              <div class="activity">
+                <span class="activity-mark" aria-hidden="true"></span
+                ><span id="activity-text"></span>
+              </div>
+            </div>
+            <div class="narrative">
+              <span class="scene-index" id="scene-index"></span>
+              <h3 id="scene-title"></h3>
+              <p id="scene-copy"></p>
+              <div class="technical">
+                <span class="micro">IN THE IMPLEMENTATION</span>
+                <p id="scene-technical"></p>
+              </div>
+            </div>
+          </div>
+          <div class="playback">
+            <button id="play" aria-label="Pause walkthrough">Pause</button
+            ><button id="previous" aria-label="Previous scene">←</button>
+            <div id="steps" class="steps" aria-label="Walkthrough scenes"></div>
+            <button id="next" aria-label="Next scene">→</button
+            ><label class="speed"
+              >Speed<select id="speed" aria-label="Playback speed">
+                <option value="1">1×</option>
+                <option value="1.5">1.5×</option>
+                <option value="2">2×</option>
+              </select></label
+            >
+          </div>
+          <p class="replay-note" id="replay-note">
+            Illustrated replay of source-reviewed mechanisms. Sample records,
+            not a live client session.
+          </p>
+          <section id="details" hidden tabindex="-1"></section>
+        </section>
+      </div>
+      <footer class="bottom-bar">
+        <p>
+          I define the work, build the context and direct coding agents. I test
+          and challenge what comes back.
+        </p>
+        <div>
+          <button id="overview-open">Watch the 5s GIF</button>
+          <button id="investment-open">My investment & practice</button
+          ><a href="https://haris-mekic-epoch-ai.pages.dev/Haris_Mekic_Epoch_AI_Enablement_CV.pdf">My CV</a
+          ><a href="notebook.md">Full technical notebook</a
+          ><a
+            class="contact"
+            href="mailto:harism88@outlook.com?subject=Epoch%20AI%20%E2%80%94%20let%E2%80%99s%20talk"
+            >We’re interested <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </footer>
+    </main>
+    <dialog id="investment" aria-labelledby="investment-title">
+      <div class="dialog-head">
+        <h2 id="investment-title">What I invested in learning by building.</h2>
+        <button id="investment-close" aria-label="Close investment details">
+          Close
         </button>
-        <nav id="chapters" aria-label="Notebook chapters">
-          <p class="nav-label">Prepared for Epoch AI</p>
-          <a href="#start">Start here<span>My working method</span></a
-          ><a href="#careeragent"
-            >CareerAgent<span>The tool I use to find work</span></a
-          ><a href="#bid_workflow"
-            >Bid operations<span>Context to a decision</span></a
-          ><a href="#servari">Servari<span>Control, memory and models</span></a
-          ><a href="#enablement"
-            >People & practice<span>Helping someone use AI</span></a
-          ><a href="#investment"
-            >Models & investment<span>Experiments, tokens and costs</span></a
-          ><a href="#epoch"
-            >The work at Epoch<span>My proposed approach</span></a
-          ><a href="#code"
-            >Open the code<span>Run, inspect and question it</span></a
-          >
-        </nav>
-        <div class="rail-bottom">
-          <a href="https://haris-mekic-epoch-ai.pages.dev/Haris_Mekic_Epoch_AI_Enablement_CV.pdf"
-            >Read my CV <span aria-hidden="true">↗</span></a
-          ><a href="https://github.com/Haris88m/ai-enablement-workbench"
-            >GitHub repository <span aria-hidden="true">↗</span></a
-          >
-          <p>Independent portfolio<br />Not an Epoch AI website</p>
-        </div>
-      </aside>
-      <main id="main" tabindex="-1">
-        <header class="topbar">
-          <span>WORKING NOTEBOOK</span
-          ><span>Operations experience. AI development. People.</span
-          ><a class="contact-small" href="#contact">Let’s talk</a>
-        </header>
-        <div id="reading">
-          <noscript
-            ><h1>Haris Mekic’s technical notebook</h1>
-            <p>
-              This interactive notebook uses JavaScript. You can read the
-              complete <a href="notebook.md">plain-text edition</a> or visit the
-              <a href="https://github.com/Haris88m/ai-enablement-workbench"
-                >public code repository</a
-              >.
-            </p></noscript
-          >
-        </div>
-        <footer>
-          <span
-            >Written from my work and reviewed source records. Prepared with AI
-            assistance.</span
-          ><a href="notebook.md">Text edition</a
-          ><a href="llms.txt">For AI readers</a>
-        </footer>
-      </main>
-    </div>
-    <div class="live" id="announcer" role="status" aria-live="polite"></div>
+      </div>
+      <p>
+        I funded these experiments myself. The records below make that practice
+        inspectable without turning model usage into a claim about impact.
+      </p>
+      <div id="investment-content"></div>
+    </dialog>
+    <dialog id="overview" aria-labelledby="overview-title">
+      <div class="dialog-head"><h2 id="overview-title">The working loop, in five seconds.</h2><button id="overview-close">Close</button></div>
+      <p>A parallel-analysis example, illustrated in five seconds. The interactive walkthrough distinguishes this pattern from sequential workers and separate control modules.</p>
+      <div id="overview-media"></div>
+    </dialog>
+    <noscript
+      ><p>
+        This portfolio uses JavaScript for its walkthroughs.
+        <a href="notebook.md">Read the complete technical notebook</a> or
+        <a href="https://github.com/Haris88m/ai-enablement-workbench"
+          >inspect the public source</a
+        >.
+      </p></noscript
+    >
   </body>
 </html>
