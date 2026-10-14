@@ -17,7 +17,7 @@ def text_values(value):
 def main():
     root = Path(__file__).resolve().parent
     files = [p for p in root.rglob('*') if p.is_file() and '__pycache__' not in p.parts
-             and '.git' not in p.parts]
+             and '.git' not in p.parts and '.wrangler' not in p.parts]
     prohibited_extensions = {'.sqlite', '.db', '.eml', '.msg', '.jsonl', '.pem', '.key'}
     errors = []
     private_path = re.compile(r'(?:[A-Za-z]:[\\/]|/Users/|/home/)[A-Za-z]')
