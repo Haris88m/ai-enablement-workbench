@@ -1,13 +1,10 @@
-# Haris Mekic — AI enablement portfolio
+# Haris Mekic — code and evidence
 
-Two sections: working implementations and a proposed first-day approach at Epoch AI.
+Selected runnable excerpts, published source-review narratives and dated research summaries. Project code is not uniformly public.
 
-- [Technical notebook](https://haris-mekic-epoch-ai.pages.dev/notebook.md)
-- [Deep implementation data](https://haris-mekic-epoch-ai.pages.dev/engineering.json)
-- [Source component index](https://haris-mekic-epoch-ai.pages.dev/source-index.json)
-- [Usage scope](https://haris-mekic-epoch-ai.pages.dev/usage.json)
-- [Documented payments](https://haris-mekic-epoch-ai.pages.dev/payments.json)
-- [Proposed plan](https://haris-mekic-epoch-ai.pages.dev/plan.json)
-- [Public code](https://github.com/Haris88m/ai-enablement-workbench)
+- [Code and evidence index](https://github.com/Haris88m/ai-enablement-workbench/blob/main/website/evidence-index.md)
+- [Salience implementation narrative](https://github.com/Haris88m/ai-enablement-workbench/blob/1c99b93014a253fb40898e1f3b18037a4ef2832b/website/engineering.json)
+- [Source-component descriptions](https://github.com/Haris88m/ai-enablement-workbench/blob/1c99b93014a253fb40898e1f3b18037a4ef2832b/website/source-index.json)
+- [Public repository](https://github.com/Haris88m/ai-enablement-workbench)
 
-Animations use illustrative records. Source inspection is not a live integration test. No Epoch submission or staff adoption is asserted.
+Existing implementation links are pinned to the reviewed code snapshot. The index distinguishes public code from documentation and dated review summaries. Diagrams are illustrations, source review is not a live integration test, and no business outcome is inferred.

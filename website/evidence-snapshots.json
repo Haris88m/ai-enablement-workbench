@@ -1,0 +1,89 @@
+{
+  "title": "Portfolio evidence snapshots",
+  "compiled_on": "2026-10-15",
+  "evidence_class": "Dated, author-controlled project-review summaries; not independent validation",
+  "provenance": "Summarized from the project review prepared on 14 October 2026. This appendix makes the aggregate claims and counting rules inspectable. The underlying private source records are not published and were not independently recounted for this appendix.",
+  "public_code_snapshot": {
+    "repository": "https://github.com/Haris88m/ai-enablement-workbench",
+    "commit": "1c99b93014a253fb40898e1f3b18037a4ef2832b",
+    "audit_date": "2026-10-15",
+    "offline_tests_passed": 16,
+    "files_matched_to_git_blobs": 49,
+    "scope": "Selected CareerAgent and Servari excerpts; no live integrations or business outcomes tested"
+  },
+  "smash": {
+    "evidence_class": "Dated public-menu research summary; underlying tracker not included",
+    "snapshot_date": "2026-10-12",
+    "observations": [
+      {
+        "date": "2026-10-05",
+        "count": 39
+      },
+      {
+        "date": "2026-10-12",
+        "count": 91
+      }
+    ],
+    "baseline_composition": {
+      "preserved_manual_baseline_rows": 30,
+      "targeted_primary_source_rechecks": 9
+    },
+    "added_observations": 52,
+    "added_composition": {
+      "recent_indexed_observations": 51,
+      "older_cached_offer": 1
+    },
+    "matched_regular_price_pairs": 36,
+    "observed_changes_in_matched_pairs": 0,
+    "eligible_cross_brand_portion_pairs": 0,
+    "method": "Keep observation date, branch, platform, product, price type and source attached to each record. Compare matched displayed regular-price pairs separately from cross-brand portion eligibility. Counts can include the same item at different observation times.",
+    "limits": [
+      "Not 91 unique products or 91 fresh live checks.",
+      "Indexed menu prices are not checkout prices.",
+      "Zero observed changes applies only to the 36 matched pairs, not the whole market.",
+      "No eligible portion pairs is a comparison-coverage result, not evidence of equivalent portions.",
+      "No sales, profit, conversion, elasticity, ingredient-cost or business-impact outcome is established."
+    ]
+  },
+  "signal": {
+    "evidence_class": "Dated private-source review summary; owner-demo code and catalog are not included",
+    "source_review_date": "2026-10-14",
+    "catalog_observation_date": "2026-08-17",
+    "status": "Functional discovery-first owner-demo prototype reported in source review; commerce disabled",
+    "identity_records": 14,
+    "guidance_bundles": 7,
+    "category_counts": {
+      "Face care": 1,
+      "Body care": 2,
+      "Sun protection": 1,
+      "Hand care": 1,
+      "Oral care": 3,
+      "Baby care": 3,
+      "Supplements": 3
+    },
+    "method": "The reviewed catalog defines product identities with manufacturer-source and observed local-listing references. Category totals count identity records. Guidance bundles are a separate set; seven categories and seven bundles are different counts.",
+    "limits": [
+      "Identity records and public listings do not establish current stock, participating sellers, saleability or image rights.",
+      "No authorized branch feeds or orderable offers.",
+      "External qualified review of the guidance remains outstanding.",
+      "No clinical effectiveness, personal suitability, recommendation validation, health outcome or production pharmacy integration is established.",
+      "The public appendix reports the source-review findings; it does not allow an independent recount of the private catalog."
+    ]
+  },
+  "soap_benefits": {
+    "evidence_class": "Synthetic process demonstration described in project review; no public executable package or historical run log",
+    "workflow": [
+      "Allocation",
+      "Request",
+      "Approval",
+      "Supporting evidence",
+      "Finance review / reconciliation"
+    ],
+    "scope": "A benefits-process concept distinct from the Salience procurement platform.",
+    "limits": [
+      "Synthetic transactions and handoffs, not real employee or employer data.",
+      "No live payroll integration, tax saving, client funds, payment execution or business outcome is claimed.",
+      "Historical test counts are omitted because no public run artifact is supplied."
+    ]
+  }
+}

@@ -40,16 +40,18 @@
     {
       "id": "SIGNAL-GAP-01",
       "title": "Project Signal",
-      "status": "Research and governance blueprint; no application implementation authorized",
-      "summary": "Project Signal structures a pharmacy-access concept into sourced research, assumptions, decision records, feature evaluations, service hypotheses and implementation-readiness gates. Its current records hold application development pending further research and qualified review.",
+      "status": "Source-reviewed discovery-first owner-demo prototype; commerce disabled; reviewed 14 October 2026",
+      "summary": "The 14 October 2026 private-source review records a functional discovery-first owner demo with 14 documented product-identity records and seven criteria-led guidance bundles. Catalog evidence observations date to 17 August 2026. This supersedes the previous blueprint-only status description; owner-demo code and individual catalog records are not included in this public package.",
       "mechanisms_verified": [
-        "File-based research and decision system",
-        "JSON schemas for risks, research items, decisions and feature candidates",
-        "Blueprint validation and status-report scripts",
-        "Explicit separation of unverified hypotheses from approved requirements",
-        "Implementation-readiness review"
+        "Structured research and decision records described by the source review",
+        "Product identity records with manufacturer and observed local-listing references",
+        "Criteria-led guidance bundles described by the source review",
+        "Functional owner-demo discovery interface reported in the review",
+        "Commerce-disabled and implementation-readiness gates described by the source review"
       ],
-      "application_use": "A research and requirements-governance case, not an automated pharmacy network, live partner outreach or adopted health platform."
+      "application_use": "Present as a dated source-review summary of an owner-demo prototype, not a public executable implementation, independently audited catalog, live service, authorized partner network or validated recommendation system. Qualified external review remains outstanding.",
+      "evidence_type": "Dated private-source review summary, not independent validation",
+      "aggregate_note": "evidence-snapshots.json"
     }
   ]
 }

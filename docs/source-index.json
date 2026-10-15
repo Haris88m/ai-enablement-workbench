@@ -1,5 +1,5 @@
 {
-  "scope": "Source-location references, not publication of private repositories. Examples below are redrawn illustrations, not a live system recording.",
+  "scope": "Source-location descriptions and dated review summaries, not publication of private repositories or independent validation. Examples are redrawn illustrations, not live system recordings.",
   "sources": [
     {
       "id": "S04",
@@ -194,12 +194,27 @@
     {
       "id": "SIGNAL-SRC-01",
       "component": "Project governance instructions",
-      "locator": "Research blueprint scope and implementation gate"
+      "locator": "Historical governance and implementation gate; this record alone does not describe the later owner demo"
     },
     {
       "id": "SIGNAL-SRC-02",
       "component": "Research project state",
-      "locator": "Hypotheses, decision records and implementation-readiness review"
+      "locator": "Historical hypotheses, decision records and readiness review; see the dated owner-demo summary in secondary-cases.json"
+    },
+    {
+      "id": "SIGNAL-REVIEW-2026-10-14",
+      "component": "Owner-demo source-review summary",
+      "locator": "Dated review summary and aggregate appendix; private code and catalog records are not published"
+    },
+    {
+      "id": "SMASH-RESEARCH-2026-10-12",
+      "component": "Public-menu research aggregate",
+      "locator": "Dated aggregate summary, counting units and limits; underlying tracker not published"
+    },
+    {
+      "id": "SOAP-BENEFITS-SUMMARY",
+      "component": "Synthetic benefits-process demonstration",
+      "locator": "Process summary only; no executable module or historical test artifact published"
     }
   ]
 }
