@@ -1,8 +1,8 @@
 # AI enablement workbench
 
-Haris Mekic's technical working notebook and implementation companion for an Epoch AI application. I define the operational problem, provide context, direct coding agents and review the result. This repository opens selected actual CareerAgent and Servari mechanisms alongside clearly identified new examples.
+Haris Mekic's technical working notebook for practical AI enablement. I define the operational problem, provide context, direct coding agents and review the result. This repository opens selected actual CareerAgent and Servari mechanisms alongside clearly identified new examples. It began as an application companion in October 2026 and now also documents part of my broader [MEKreflect research practice](https://mekreflect.com/).
 
-The [interactive portfolio](https://haris-mekic-epoch-ai.pages.dev) introduces my AI-assisted research and development across Salience, CareerAgent, SMASH, Signal, SOAP benefits and visual work, followed by a proposed first day at Epoch. The [code and evidence index](website/evidence-index.md) distinguishes runnable excerpts, public source-review narratives and dated research summaries. Most project implementations remain private; this is not a complete source release for every portfolio case. This is my independent portfolio, not an Epoch AI product.
+The [application portfolio](https://haris-mekic-epoch-ai.pages.dev) is a dated record of my AI-assisted research and development across Salience, CareerAgent, SMASH, Signal, SOAP benefits and visual work, followed by a proposed first day at Epoch. The [code and evidence index](website/evidence-index.md) distinguishes runnable excerpts, public source-review narratives and dated research summaries. Most project implementations remain private; this is not a complete source release for every portfolio case. This is my independent portfolio, not an Epoch AI product. Current company research and consultations are at [mekreflect.com](https://mekreflect.com/); the original application material is retained here with its historical context.
 
 ## Run it
 
@@ -51,7 +51,7 @@ Servari excerpts: Apache-2.0, with included upstream `servari/LICENSE` and `serv
 
 `docs/development-history.json` records selected professional episodes, inputs, my directions, agent work and observed outputs. `docs/operational-plan.json` is a prospective first-day and 90-day approach, not a historical achievement. `docs/usage.json` keeps provider counters separate, and `docs/payments.json` reports only the reviewed paid receipts. Raw conversations, source databases and billing records are not published.
 
-The current application itself is a CareerAgent case. I asked agents to inspect professional records, prepare technical material, build the notebook and review the joined result. My review rejected an earlier page for being too generic; this release adds the implementation depth and recorded development decisions. That iteration is part of the method, not proof of improved hiring outcomes.
+The original application itself is a CareerAgent case. I asked agents to inspect professional records, prepare technical material, build the notebook and review the joined result. My review rejected an earlier page for being too generic; this release adds the implementation depth and recorded development decisions. That iteration is part of the method, not proof of improved hiring outcomes.
 
 ## Preview the website
 
